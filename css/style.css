@@ -18,40 +18,77 @@ a:active {
 }
 
         /* header style */
-.fancy-header {
-    color: purple;
-    text-decoration: underline;
-}
-
-#main-header {
-    text-align: center;
-
-}
-
-        /* h2 styling */
-section h2 {
+.fancy-header, section h2 {
+    text-shadow: 1px 1px 2px gray;
     color: darkcyan;
     text-decoration: underline;
 }
+
+#main-header, p {
+    text-align: center;
+}
+
 
 
         /* Body and list styling */
 body {
     font-family: monospace;
     background-color: azure;
-    background-image: url("https://previews.123rf.com/images/alicjane/alicjane1802/alicjane180200128/95333485-creased-background-of-white-paper-texture.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/28/21/36/white-1866105_960_720.jpg");
     background-size: 1000px;
 }
 
-ul {
+h2{
+    text-align: center;
+}
+
+ul, ul>li {
+    text-align: center;
     list-style: square;
+    list-style: inside;
+    margin: 0;
+    padding: 0;
+}
+
+ol, ol>li {
+    text-align: center;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
 }
 
 
+        /* Image Positioning */
+aside {
+   text-align: center;
+}
+
+img {
+    border-radius: 8px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
         /* table styling */
+#header-center {
+    text-align: center;
+    border-style: solid;
+    border-color: cadetblue;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 table {
-    padding: 10px;
+    border-style: outset groove;
+    border-color: cadetblue;
     background-color: darkcyan;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 tr {
