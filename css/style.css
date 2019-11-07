@@ -1,3 +1,5 @@
+
+        /* anchor tag psuedo selector*/
 a:link {
     color: blue;
 }
@@ -12,9 +14,10 @@ a:hover {
 
 a:active {
     color: aqua;
+
 }
 
-
+        /* header style */
 .fancy-header {
     color: purple;
     text-decoration: underline;
@@ -22,14 +25,17 @@ a:active {
 
 #main-header {
     text-align: center;
+
 }
 
+        /* h2 styling */
 section h2 {
     color: darkcyan;
     text-decoration: underline;
 }
 
 
+        /* Body and list styling */
 body {
     font-family: monospace;
     background-color: azure;
@@ -41,6 +47,8 @@ ul {
     list-style: square;
 }
 
+
+        /* table styling */
 table {
     padding: 10px;
     background-color: darkcyan;
@@ -49,6 +57,7 @@ table {
 tr {
     background-color: white;
     color: #2f4f5f;
+    text-align: center;
 }
 
 #table-header {
