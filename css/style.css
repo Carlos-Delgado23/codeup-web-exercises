@@ -1,4 +1,58 @@
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: green;
+}
+
+a:active {
+    color: aqua;
+}
+
+
 .fancy-header {
     color: purple;
     text-decoration: underline;
 }
+
+#main-header {
+    text-align: center;
+}
+
+section h2 {
+    color: darkcyan;
+    text-decoration: underline;
+}
+
+
+body {
+    font-family: monospace;
+    background-color: azure;
+    background-image: url("https://previews.123rf.com/images/alicjane/alicjane1802/alicjane180200128/95333485-creased-background-of-white-paper-texture.jpg");
+    background-size: 1000px;
+}
+
+ul {
+    list-style: square;
+}
+
+table {
+    padding: 10px;
+    background-color: darkcyan;
+}
+
+tr {
+    background-color: white;
+    color: #2f4f5f;
+}
+
+#table-header {
+    background-color: coral;
+    color: white;
+}
+
