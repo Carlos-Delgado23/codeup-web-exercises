@@ -2,6 +2,7 @@
         :root {
             --main-bg: #E6ECF0;
             --link-color: #3B94D9;
+            --text-muted: #55ACEE;
             --main-link-color: #848487;
             --light-bg: #FFF;
             --separator-color: #DDD;
@@ -33,7 +34,7 @@
 
 /* Navigation Styling */
         .top-nav {
-            background: var(--light-bg);
+            background: var(--text-muted);
             position: fixed;
             width: 100%;
             z-index: 500;
@@ -48,7 +49,7 @@
             padding: 1.5em;
         }
         .nav-link {
-            color: var(--main-link-color);
+            color: var(--light-bg);
             display: inline-block;
             font-weight: bold;
             text-decoration: none;
@@ -60,7 +61,8 @@
 
 /* Profile Styling */
         .profile {
-            background: var(--light-bg);
+            background: var(--text-muted);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 35px 0 rgba(0, 0, 0, 0.19);
             height: 80px;
         }
 
@@ -77,11 +79,14 @@
         .profile-form{
             float: right;
             line-height: 80px;
+            margin-right: .5em;
         }
 
         .profile-image{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
             position: absolute;
             top: 240px;
+            margin-left: .5em;
         }
 
         .profile-items{
@@ -94,6 +99,7 @@
         .container{
             margin-top: 2em;
         }
+
         .timeline{
             float: left;
             margin: 0 .5em;
@@ -109,6 +115,8 @@
         .media{
             background-color: var(--light-bg);
             border-bottom: 1px solid var(--separator-color);
+            border-radius: .5em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 35px 0 rgba(0, 0, 0, 0.19);
             overflow: hidden;
             padding: .5em;
             width: 100%;
@@ -129,7 +137,7 @@
 
 /* Button Styling */
         .btn {
-            border: 1px solid var(--main-link-color);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 1px 1px 10px 0 rgba(0, 0, 0, 0.19);
             color: var(--main-link-color);
             background: var(--light-bg);
             font-weight: bold;
@@ -148,5 +156,9 @@
             text-align: right;
         }
         .text-muted {
+            color: var(--text-muted);
+        }
+
+        .since {
             color: var(--main-link-color);
         }
