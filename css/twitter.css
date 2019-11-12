@@ -67,7 +67,7 @@
         .profile-details{
             float: left;
             margin: 0 .5em;
-            width: calc(25% - .5em);
+            width: calc(25% - 1.5em);
         }
 
         .profile-entry{
@@ -92,12 +92,12 @@
 
 /* Timeline etc */
         .container{
-            margin: 2em;
+            margin-top: 2em;
         }
         .timeline{
             float: left;
             margin: 0 .5em;
-            width: calc(50% - 2.5em);
+            width: calc(50% - .5em);
         }
 
         .who-to-follow{
