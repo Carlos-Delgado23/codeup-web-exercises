@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+}
+
+.note-item{
+    font-weight: normal;
+}
+
+.flex-container {
+    height: 10em;
+    width: 100%;
+    border: 3px solid goldenrod;
+    display: flex;
+    flex-direction: row;
+}
+.flex-item {
+    background: #BFD45D;
+    border: 2px solid #F9EFD6;
+    padding: 1em;
+}
+
+.first-item{
+    /*font-size: 15px;*/
+    flex-grow: 1;
+}
+.second-item{
+    /*font-size: 30px;*/
+    flex-grow: 1;
+}
+.third-item{
+    /*font-size: 45px;*/
+    flex-grow: 2;
+}
