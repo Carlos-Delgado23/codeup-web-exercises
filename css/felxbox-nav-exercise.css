@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+
+.top-nav{
+    border: 3px solid #333333;
+    display: flex;
+
+}
+
+.nav-items{
+
+}
+
+.left-side-nav{
+    margin-right: 25%;
+}
+
+.right-side-nav{
+    margin-left: 25%;
+}
