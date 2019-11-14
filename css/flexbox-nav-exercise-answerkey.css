@@ -1,0 +1,65 @@
+
+/* Page Styling */
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Work Sans";
+}
+
+
+/* Link Styling */
+a{
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover{
+    color: blue;
+}
+
+.logo a:hover{
+    color: white;
+}
+
+
+/* Nav Styling */
+.top-nav{
+    background: lightgray;
+    height: 4.25em;
+    display: flex;
+        align-items: center;
+}
+
+.nav-items{
+    padding: .5em;
+    font-size: .8em;
+    font-weight: bolder;
+    height: inherit;
+}
+
+.left-side-nav{
+    margin-left: .5em;
+}
+
+.right-side-nav{
+    margin-left: auto;
+    margin-right: .5em;
+}
+
+.logo{
+    font-family: "Montserrat";
+    position: absolute;
+    height: inherit;
+    display: flex;
+    width: 100%;
+    font-size: 3em;
+    margin: auto;
+    padding-top: .2em;
+    font-weight: normal;
+}

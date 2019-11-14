@@ -52,5 +52,8 @@
         }
 
         .logo{
+            margin: 0;
+            padding: .2em;
+            font-size: 2em;
             font-weight: normal;
         }
