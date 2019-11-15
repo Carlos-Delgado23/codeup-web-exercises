@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+main{
+    border: 1px solid black;
+    display: grid;
+    margin: auto;
+    grid-template-rows: .5fr .5fr .5fr .5fr .5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*grid-template-areas:*/
+    /*    "header header header"*/
+    /*    "nav article article"*/
+    /*    "nav footer footer";*/
+    grid-gap: .6em;
+    height: 100vh;
+}
+
+.bg{
+    background-color: #ffd700;
+    padding: .5em;
+    color: white;
+    font-size: 35px;
+}
+
+.one{
+    grid-area: 1 / 1 / 2 / 5;
+}
+
+.two{
+    grid-area: 2 / 1 / 6 / 2;
+}
+
+.three{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.four{
+    grid-area: 2 / 3 / 3 / 5;
+}
+
+.five{
+     grid-area: 3 / 2 / 4 / 4;
+ }
+
+.six{
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.seven{
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.eight{
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.nine{
+    grid-area: 4 / 4 / 5 / 5;
+}
+
+.ten{
+    grid-area: 5 / 2 / 6 / 5;
+}
