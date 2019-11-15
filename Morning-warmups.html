@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
 
-    <script>
+<script>
 
-        function hello(){
-            return "Hello World!";
-        }
-        console.log(hello());
+    function hello(){
+        return "Hello World!";
+    }
+    console.log(hello());
 
-        function helloName(name){
+    function helloName(name){
 
-            return "Hello " + name + "!";
-        }
-        console.log(helloName("Europa"));
+        return "Hello " + name + "!";
+    }
+    console.log(helloName("Europa"));
 
-        function add(x,y){
-            return x + y;
-        }
-        console.log(add(1,3));
+    function add(x,y){
+        return x + y;
+    }
+    console.log(add(1,3));
 
-        // function addFour(w,x,y,z){
-        //     return w + x + y + z;
-        // }
-        // console.log(addFour(1,2,3,4));
+    // function addFour(w,x,y,z){
+    //     return w + x + y + z;
+    // }
+    // console.log(addFour(1,2,3,4));
 
-        function addFour(w,x,y,z){
-            var sum = w + x + y + z;
-            return sum;
-        }
-        console.log (addFour(17,100,2,23));
+    function addFour(w,x,y,z){
+        var sum = w + x + y + z;
+        return sum;
+    }
+    console.log (addFour(17,100,2,23));
 
-        function calculateRectangleArea(width,length){
-            var area = width * length;
-            return area;
-        }
-        console.log (calculateRectangleArea(10,20))
+    function calculateRectangleArea(width,length){
+        var area = width * length;
+        return area;
+    }
+    console.log (calculateRectangleArea(10,20))
 
-        function firstItem(pets) {
-            var petType = ["dog","cat","bird","fish"];
-            return pets[0]
-        }
-        console.log(firstItem(["dog","cat","bird","fish"]));
+    function firstItem(pets) {
+        var petType = ["dog","cat","bird","fish"];
+        return pets[0]
+    }
+    console.log(firstItem(["dog","cat","bird","fish"]));
 
-    </script>
+    function arrayLength(Length) {
+        var arryItems = ["dog","cat","bird","fish"];
+        return arryItems.length;
+    }
+    console.log(arrayLength(["dog","cat","bird","fish"]));
 
-    </body>
+</script>
+
+</body>
 
 </html>
