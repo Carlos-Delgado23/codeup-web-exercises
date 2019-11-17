@@ -42,6 +42,19 @@
             color: white;
         }
 
+/*GRID STYLING*/
+        .wrapper{
+            display: grid;
+            grid-template-columns: 1fr repeat(2, 2fr) 1fr;
+            grid-auto-rows: auto;
+        }
+
+        #nav-content{
+            display: flex;
+            align-items: flex-start;
+        }
+
+
 /*NAV STYLING*/
         nav{
             background-color: black;
@@ -49,10 +62,12 @@
         }
 
         .nav-item{
+            margin: .5em;
             padding: 0;
         }
 
         .nav-link{
+            font-size: 12px;
             text-decoration: none;
             color: white;
         }
