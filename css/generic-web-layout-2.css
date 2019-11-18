@@ -58,7 +58,7 @@
         .wrapper {
             display: grid;
             grid-template-columns:10% 70% 20%;
-            grid-template-rows: auto;  /* 3% 25% 25% 25% 10% 12% */
+            grid-template-rows: 3% 25% 25% 25% 10% 12%;
             grid-column-gap: 0;
             grid-row-gap: 0;
             grid-template-areas:
@@ -180,7 +180,7 @@
         }
 
         .heading-one{
-            grid-area: header-one ;
+            grid-area: header-one;
         }
         .ad1{
             grid-area: ad-one;

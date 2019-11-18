@@ -1,0 +1,122 @@
+/*CORE STYLING*/
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+/*TOP STYLING*/
+        .alert-info{
+            background: lightcyan;
+            border: 2px solid lightgray;
+            margin: 8px;
+            padding: 1em ;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .alert-info a{
+            color: black;
+            text-decoration: none;
+        }
+
+/*TITLE AND NAV STYLING*/
+        h1{
+            font-size: 50px;
+            margin-top: .2em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        .nav-links{
+            padding: 0;
+
+        }
+
+        nav ul li{
+            list-style: none;
+        }
+
+        .nav-links a{
+            background: lightgray;
+            padding: 1em;
+            margin: 1em;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+/*IMG STYLING*/
+        .header-img{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        img{
+            justify-content: center;
+            margin: 0 1em;
+            padding: 0;
+            width: 100%;
+        }
+
+/*MAIN AND SUB SECTIONS*/
+        .main{
+            margin-bottom: 4em;
+        }
+
+        .sub-section{
+            font-style: italic;
+        }
+
+        .sub-section h2{
+            font-size: 24px;
+        }
+
+/*FOOTER*/
+        footer{
+            margin-top: 10em;
+            display: grid;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+
+
+
+
+/*@media all and (max-width: 1199px) {*/
+/*    body {*/
+/*        background-color: #0fb784;*/
+/*        color: #9e4157;*/
+/*    }*/
+/*}*/
+/*@media all and (max-width: 991px) {*/
+/*    body {*/
+/*        background-color: #9e4157;*/
+/*        color: #372f93;*/
+/*    }*/
+/*}*/
+/*@media all and (max-width: 768px) {*/
+/*    body {*/
+/*        background-color: #372f93;*/
+/*        color: #b4d455;*/
+/*    }*/
+/*}*/
+/*@media all and (max-width: 575px) {*/
+/*    body {*/
+/*        background-color: #b4d455;*/
+/*        color: orange;*/
+/*    }*/
+/*}*/
+
+/*@media all and (min-width: 1200px) {*/
+/*    body {*/
+/*        background-color: #30447B;*/
+/*        color: orangered;*/
+/*    }*/
