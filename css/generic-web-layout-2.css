@@ -56,37 +56,28 @@
 /*GRID STYLING*/
 
         .wrapper {
-            width: 100vw;
-            height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns:10% 70% 20%;
+            grid-template-rows: 3% 25% 25% 25% 10% 12%;
             grid-column-gap: 0;
             grid-row-gap: 0;
+            grid-template-areas:
+                    "nav nav nav"
+                    "menu heading1 ad1"
+                    "menu heading2 ad2"
+                    "menu heading3 ad3"
+                    "menu page page"
+                    "menu footer footer";
         }
 
-        .nav { grid-area: 1 / 1 / 2 / 5; }
-        .menu { grid-area: 2 / 1 / 9 / 2; }
-        .heading-one { grid-area: 2 / 2 / 3 / 4; }
-        .ad-one { grid-area: 2 / 4 / 3 / 5; }
-        .heading-two { grid-area: 3 / 2 / 4 / 4; }
-        .ad-two { grid-area: 3 / 4 / 4 / 5; }
-        .heading-three { grid-area: 4 / 2 / 5 / 4; }
-        .ad-three { grid-area: 4 / 4 / 5 / 5; }
-        .main-footer { grid-area: 5 / 2 / 8 / 5; }
-        /*.footer { grid-area: 6 / 2 / 7 / 5; }*/
-        /*.powered { grid-area: 7 / 2 / 8 / 5; }*/
-
-        .main{
-        }
 
         .main-footer{
-            display: grid;
+            grid-area: footer;
         }
-        /*#nav-content{*/
-        /*    display: flex;*/
-        /*    align-items: flex-start;*/
-        /*}*/
+        #nav-content{
+            display: flex;
+            align-items: flex-start;
+        }
 
         .ad-wrapper{
             margin: 1em;
@@ -113,7 +104,8 @@
             color: white;
         }
 
-        .nav-content{
+        .nav{
+            grid-area: nav;
         }
 
         .nav-item{
@@ -172,6 +164,7 @@
 
 /*MENU STYLING*/
         #menu-nav{
+            grid-area: menu;
             background-color: #f0f0f0;
         }
 
@@ -184,6 +177,29 @@
         .heading-one, .heading-two, .heading-three{
             margin: 0 1em;
             padding-top: 2em;
+        }
+
+        .heading-one{
+            grid-area: heading1;
+        }
+        .ad1{
+            grid-area: ad1;
+        }
+
+        .heading-two{
+            grid-area: heading2;
+        }
+
+        .ad2{
+            grid-area: ad2;
+        }
+
+        .heading-three{
+            grid-area: heading3;
+        }
+
+        .ad3{
+            grid-area: ad3;
         }
 
 /*AD STYLING*/
@@ -204,14 +220,15 @@
             padding: 5em;
         }
 
-        .ad-link{
-
-        }
 
 /*FOOTER STYLING*/
 
         .main-footer{
 
+        }
+
+        .page{
+            grid-area: page;
         }
 
         .page-link{
