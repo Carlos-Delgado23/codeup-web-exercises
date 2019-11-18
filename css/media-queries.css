@@ -115,7 +115,7 @@
         @media all and (min-width: 800px) {
             body{
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 2fr 1fr;
                 grid-template-rows: .2fr 2fr 1fr .5fr;
                 grid-template-areas:
                     "header    nav"
@@ -163,9 +163,25 @@
                 grid-area: main;
             }
 
+            #main h2{
+                margin: 2em 0;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
             .sub-section{
                 margin-bottom: 0;
                 grid-area: sub;
+            }
+
+            .sub-section h2{
+                margin: 2em 0;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            .sub-section p{
+                font-size: 15px;
             }
 
             footer{
