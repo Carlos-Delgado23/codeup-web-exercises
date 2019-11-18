@@ -39,7 +39,7 @@
         var area = width * length;
         return area;
     }
-    console.log (calculateRectangleArea(10,20))
+    console.log (calculateRectangleArea(10,20));
 
     function firstItem(pets) {
         var petType = ["dog","cat","bird","fish"];
@@ -53,6 +53,11 @@
     }
     console.log(arrayLength(["dog","cat","bird","fish"]));
 
+        var lastItem =  function (inputArray){
+        return inputArray[inputArray.length-1];
+    }
+
+    console.log(lastItem(["dog","cat","bird","fish"]));
 </script>
 
 </body>
