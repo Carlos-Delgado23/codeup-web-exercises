@@ -80,12 +80,19 @@
 
 /*FOOTER*/
         footer{
-            margin-top: 10em;
-            display: grid;
-            flex-direction: column;
-            justify-content: flex-start;
+            margin: 10em 1em 1em 1em;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
+        /*#social-media-links{*/
+        /*    margin: 16px;*/
+        /*    display: flex;*/
+        /*    align-content: center;*/
+        /*    justify-content: flex-end;*/
+        /*}*/
 
 
 
