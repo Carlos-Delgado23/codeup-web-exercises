@@ -29,26 +29,26 @@
             text-decoration: none;
         }
 
-        .footer{
+        #footer{
             background-color: #666666;
             color: white;
             margin: 0;
             padding: 1.5em 1.5em 1.5em 1em;
-            /*justify-content: center;*/
+            justify-content: center;
         }
 
-        .powered{
+        #powered{
             background-color: #333333;
             color: white;
             margin: 0;
             padding: .5em .5em .5em 1em;
         }
 
-        .footer p, .powered p{
+        #footer p, #powered p{
             margin: 0;
         }
 
-        #w3-link, .powered p{
+        #w3-link, #powered p{
             font-size: 10px;
             color: white;
         }
@@ -60,13 +60,13 @@
         }
 
         nav{
+            width: 100%;
             padding: .5em 0;
             background-color: black;
             color: white;
         }
 
-        .nav{
-            grid-area: nav;
+        .nav-content{
         }
 
         .nav-item{
@@ -104,10 +104,10 @@
             padding: .5em;
         }
 
-        /*#hamburger{*/
-        /*    float: right;*/
-        /*    justify-content: flex-start;*/
-        /*}*/
+        #hamburger{
+            float: right;
+            justify-content: flex-start;
+        }
 
         #hamburger span{
             color: white;
@@ -125,7 +125,6 @@
 
 /*MENU STYLING*/
         #menu-nav{
-            grid-area: menu;
             background-color: #f0f0f0;
         }
 
@@ -135,32 +134,9 @@
         }
 
 /*HEADER CONTENT*/
-        .heading-one, .heading-two, .heading-three{
+        #heading-one, #heading-two, #heading-three{
             margin: 0 1em;
             padding-top: 2em;
-        }
-
-        .heading-one{
-            grid-area: header-one;
-        }
-        .ad1{
-            grid-area: ad-one;
-        }
-
-        .heading-two{
-            grid-area: header-two;
-        }
-
-        .ad2{
-            grid-area: ad-two;
-        }
-
-        .heading-three{
-            grid-area: header-three;
-        }
-
-        .ad3{
-            grid-area: ad3;
         }
 
 /*AD STYLING*/
@@ -181,6 +157,9 @@
             padding: 5em;
         }
 
+        .ad-link{
+
+        }
 
 /*FOOTER STYLING*/
 
@@ -188,15 +167,11 @@
 
         }
 
-        .page{
-            grid-area: page;
-        }
-
         .page-link{
             margin: 1em;
         }
 
 
-        .powered{
+        #powered{
 
         }
