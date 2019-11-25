@@ -83,7 +83,7 @@
 <!--    CONTAINER/CARDS  START   -->
 
 
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="list" href="#size"><span
                                     class="badge badge-secondary mr-1">1</span>
@@ -107,7 +107,7 @@
 
 <!--    PIZZA SIZE & CRUST  START   -->
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show" id="size" role="tabpanel"
+                            <div class="tab-pane fade show active" id="size" role="tabpanel"
                                  aria-labelledby="home-tab">
 
 
@@ -123,7 +123,8 @@
                                     <div class="card-body bg-light mb-3 p-1 d-flex align-items-center border-bottom">
                                         <h5 class="card-title ml-3 bg-light text-dark my-2">Hand Tossed</h5>
                                     </div>
-                                    <p class="card-text text-left ml-3">Garlic seasoned crust with a rich, buttery taste.</p>
+                                    <div class="card-body text-left ml-3">Garlic seasoned crust with a rich, buttery
+                                        taste.</div>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-white py-0 border-left-0 border-bottom-0">
@@ -179,11 +180,11 @@
                         </div>
 
 
-                        <div class="card-footer text-muted d-flex flex-row-reverse">
-                            <a href="#" class="btn btn-primary ">Next Step <i class="fas fa-chevron-right fa-xs"></i></a>
-                        </div>
-                        </div>
-                        </div>
+                                <div class="card-footer text-muted d-flex flex-row-reverse">
+                                    <a href="#" class="btn btn-primary ">Next Step <i class="fas fa-chevron-right fa-xs"></i></a>
+                                </div>
+                            </div>
+
 
 
 
@@ -203,6 +204,7 @@
                                     <div class="card-body bg-light mb-3 p-1 d-flex align-items-center border-bottom">
                                         <h5 class="card-title ml-3 bg-light text-dark my-2">Cheese</h5>
                                     </div>
+                                    <div class="contianer">
                                     <p class="card-text text-left ml-3">How Much?</p>
                                         <div class="input-group">
                                         <select class="custom-select">
@@ -212,6 +214,7 @@
                                             <option value="3">Extra</option>
                                             <option value="3">Double</option>
                                         </select>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -221,36 +224,40 @@
                                     <div class="card-body bg-light mb-3 p-1 d-flex align-items-center border-bottom">
                                         <h5 class="card-title ml-3 bg-light text-dark my-2">Sauce</h5>
                                     </div>
+
                                     <p class="card-text text-left ml-3">What Type?</p>
                                     <div class="input-group">
-                                        <select class="custom-select" id="">
+                                        <select class="custom-select">
                                             <option selected>Robust Inspired Tomato Sauce</option>
                                             <option value="1">Tomato sauce</option>
                                             <option value="2">Marinara sauce</option>
                                             <option value="3">BBQ Sauce</option>
                                             <option value="3">Alfredo Sauce</option>
                                         </select>
+                                    </div>
 
                                         <p class="card-text text-left ml-3">How Much?</p>
                                         <div class="input-group">
-                                            <select class="custom-select" id="">
+                                            <select class="custom-select">
                                                 <option selected>Regular</option>
                                                 <option value="1">Light</option>
                                                 <option value="2">Normal</option>
                                                 <option value="3">Extra</option>
                                             </select>
+                                        </div>
                                     </div>
                                 </div>
                              </div>
 
 
-                        <div class="card-footer text-muted d-flex flex-row col-6">
+                        <div class="card-footer text-muted d-flex flex-row-reverse col-6">
                             <a href="#" class="btn btn-primary ">Next Step <i class="fas fa-chevron-right fa-xs"></i></a>
-                            <a href="#" class="btn btn-primary "><i class="fas fa-chevron-left fa-xs">Previous Step</i></a>
+                            <a href="#" class="btn btn-primary "><i class="fas fa-chevron-left fa-xs"> Previous
+                                Step</i></a>
                         </div>
                     </div>
-                    </div>
-                    </div>
+<!--                    </div>-->
+<!--                    </div>-->
 
 
 
@@ -260,9 +267,9 @@
 
                 <!--    CHOOSE MEATS       -->
                                 <div class="card text-center">
-                                    <div class="card-header bg-primary text-white text-left">
+                                    <p class="card-body bg-primary text-white text-left">
                                         Choose size and crust
-                                    </div>
+                                    </p>
                                     <div class="card-body">
 
 
@@ -363,8 +370,9 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
 
-
+                    </div>
 
 
 
@@ -400,5 +408,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</body>
+ </body>
 </html>
