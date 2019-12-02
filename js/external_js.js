@@ -10,27 +10,19 @@
 // When the exercise asks you to use a number, instead use a prompt to ask the user for that number.
 //     Use an alert to show the results of each problem.
 
-var littleMermaid = "Little Mermaid";
-var brotherBear = "Brother Bear";
-var hercules = "Hercules";
-var promptMovie = prompt("Which movie do you want to rent?" + ": " + littleMermaid + ", " + brotherBear + ", " + hercules);
+var littleMermaid = prompt("How many days do you want to rent Little Mermaid?");
+var brotherBear = prompt("How many days do you want to rent Brother Bear?");
+var hercules = prompt("How many days do you want to rent Hercules?");
+
+alert("Your total is: " + ((littleMermaid * 3) + (brotherBear * 3) + (hercules * 3)) );
 
 
-function watchMovie(movieInput){
 
-    var days = prompt("How many days?", "0");
+var googleRate = prompt("What is the rate?");
+var amaRate = prompt("What is the rate?");
+var fbRate = prompt("What is the rate?");
 
-    if (movieInput === "Little Mermaid"){
-        return alert("Your total is: $" + (days * 3) + " for Little Mermaid");
-    }
-    else if (movieInput === "Brother Bear"){
-        return alert("Your total is: $" + (days * 3) + " for Brother Bear");
-    }
-    else if (movieInput === "Hercules"){
-        return alert("Your total is: $" + (days * 3) + " for Hercules");
-    } else {
-        return alert("Thank you! Come again!");
-    }
-}
-
-watchMovie(promptMovie);
+var googleMoney = prompt("How many hours did you work?");
+var amaMoney = prompt("How many hours did you work?");
+var fbMoney = prompt("How many hours did you work?");
+alert("Your take home amount is: " + ((amaMoney * amaRate)+ (fbMoney * fbRate) + (googleMoney * googleRate)));
