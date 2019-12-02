@@ -95,7 +95,8 @@ function calculateTip(perc, bill) {
 var billTotal = Number(prompt("What is the bill total?"));
 var tip = Number(prompt("What percentage would you like to tip?"));
 var alertMessage = calculateTip(tip, billTotal)
-alert("Your tip total is: $" + alertMessage);
+// alert("Your tip total is: $" + alertMessage);
+alert(`Your tip total is: ${calculateTip(tip, billTotal)}`);
 
 
 /**
@@ -113,9 +114,10 @@ alert("Your tip total is: $" + alertMessage);
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 function applyDiscount(fullPrice, discountPerc){
-    var discPrice = fullPrice * discountPerc;
-    var afterDisc = fullPrice - discPrice;
-    return afterDisc;
+    // var discPrice = fullPrice * discountPerc;
+    // var afterDisc = fullPrice - discPrice;
+    // return afterDisc;
+    return fullPrice * (1 - discountPerc);
 }
 
 console.log(applyDiscount(45.99, 0.12));
