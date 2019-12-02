@@ -33,7 +33,7 @@ console.log(classFull || classScheduleConf);
 var classAt8AM = false;
 var classSize = 125;
 var currentClassSize = 108;
-var CanRegister = (currentClassSize < classSize) && !classAt8AM;
+var canRegister = (currentClassSize < classSize) && !classAt8AM;
 console.log(canRegister);
 
 
