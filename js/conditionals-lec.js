@@ -105,23 +105,72 @@ console.log("hello from conditionals lec.js!");
 
 // =============== IF / ELSE STATEMENT EXAMPLES ================
 //TODO Together: Show a specific navbar if user is admin, else show a different navbar
-var isAdmin = true;
-
+// var isAdmin = true;
+// if(isAdmin){
+//     //show admin navbar
+//     alert("User is an Admin")
+// } else {
+//     //show reg navbar
+//     alert("user is a reg user. not admin")
+// }
 
 //TODO Together: Write an if statement that alerts "It's raining" if isRainy is true, else return "have a nice day!"
-
+// var isRainy = false;
+// if (isRainy) {
+//     alert("It is raining");
+// } else  {
+//     alert("Have a nice day!");
+// }
 
 
 
 //TODO: Write an if statement that alerts "Sorry, game over" if numberOfLives is 0, else alert "Next Level!"
-//TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing", else alert "Check back later for more details!"
-//TODO: Write an if statement that alerts true if numberInput is greater than 10, else alert "the number is less than 10"
-//TODO: Refactor todo#1 as a function named checkIfGameIsOver, that accepts numberOfLives and returns "Sorry, game over" if numberOfLives is 0, else return "Next Level!.
+//     var numberOfLives = 2;
+//     if(numberOfLives === 0){
+//         alert("Sorry, game over");
+//     } else {
+//         alert("Next Level!");
+//     }
 
+//TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing", else alert "Check back later for more details!"
+//     var weather = "snowing";
+//     if(weather === "snowing"){
+//         alert("It's Snowing!");
+//     } else {
+//         alert("Check back later for more details!");
+//     }
+
+
+//TODO: Write an if statement that alerts true if numberInput is greater than 10, else alert "the number is less than 10"
+//     var numberInput = 12;
+//     if (numberInput > 10){
+//         alert("True");
+//     } else {
+//         alert("the number is less than 10");
+//     }
+
+//TODO: Refactor todo#1 as a function named checkIfGameIsOver, that accepts numberOfLives and returns "Sorry, game over" if numberOfLives is 0, else return "Next Level!.
+// function checkIfGameIsOver(numberOfLives) {
+//     if (numberOfLives === 0) {
+//         alert("Sorry, game over");
+//     } else {
+//         alert("Next Level!");
+//     }
+// }
+//
+// console.log(checkIfGameIsOver(1));
 
 
 //TODO: EXTRA BONUS - Refactor todo#2 from above as a function.
-
+// function weatherOut(weather) {
+//     if(weather === "snowing"){
+//         alert("It's Snowing!");
+//     } else {
+//         alert("Check back later for more details!");
+//     }
+// }
+//
+// console.log(weatherOut("nah!"));
 
 
 // SHOULD WE DELETE STUFF EXAMPLE
@@ -130,6 +179,16 @@ var isAdmin = true;
 
 
 //TODO: Write a confirm asking the user if they are 13 years of age or older. If they are, alert "You may proceed", if they are not, alert "Sorry, you are not able to proceed"
+var ageOver = confirm("Are you 13 or older?")
+function confirmAge(ageOver){
+    if(ageOver){
+        alert("you may proceed");
+    } else {
+        alert("nah! stay out!");
+    }
+}
+
+console.log(confirmAge(ageOver));
 
 // ================ IF / ELSE IF / ELSE STATEMENT SYNTAX ===============
 // if(condition1){
