@@ -269,9 +269,23 @@ console.log(trafficLight("yellow"));
 
 
 // ================ NESTED STATEMENTS ===============
-//TODO Together: If user is under 15, they are not eligible for a learners permit, else they are. If they are eligible, check age. If they are 15 they are eligible for a learners permit, if they are 16 or older and have a permit, they are eligible for license, if they are 16 or older and do not have a permit, they are not eligble for a license.
+//TODO Together: If user is under 15, they are not eligible for a learners permit, else they are. If they are
+// eligible, check age. If they are 15 they are eligible for a learners permit, if they are 16 or older and have a permit, they are eligible for license, if they are 16 or older and do not have a permit, they are not eligible for a license.
 
+    var userAge = 15;
+    var hasPermit = true;
 
+    if(userAge < 15){
+        alert("sorry no can do");
+    } else {
+        if(userAge === 15) {
+            alert("you can have a permit");
+        } else if (userAge >= 16 && hasPermit){
+            alert("you can have a license");
+        } else if (userAge >= 16 && !hasPermit){
+            alert("sorry you need a permit");
+        }
+    }
 
 
 
