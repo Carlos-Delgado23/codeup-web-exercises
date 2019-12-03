@@ -284,6 +284,8 @@ console.log(trafficLight("yellow"));
             alert("you can have a license");
         } else if (userAge >= 16 && !hasPermit){
             alert("sorry you need a permit");
+        } else {
+            alert("please proceed to the front desk");
         }
     }
 
