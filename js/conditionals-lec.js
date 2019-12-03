@@ -174,21 +174,27 @@ console.log("hello from conditionals lec.js!");
 
 
 // SHOULD WE DELETE STUFF EXAMPLE
-
+// var weShouldDeleteStuff = confirm('Are you sure you want to delete everything?');
+// console.log("The value of the confirm is: " + weShouldDeleteStuff);
+// if (weShouldDeleteStuff) {
+//     // delete all the things...
+// } else {
+//     alert("Operation Canceled!");
+// }
 
 
 
 //TODO: Write a confirm asking the user if they are 13 years of age or older. If they are, alert "You may proceed", if they are not, alert "Sorry, you are not able to proceed"
-var ageOver = confirm("Are you 13 or older?")
-function confirmAge(ageOver){
-    if(ageOver){
-        alert("you may proceed");
-    } else {
-        alert("nah! stay out!");
-    }
-}
-
-console.log(confirmAge(ageOver));
+// var ageOver = confirm("Are you 13 or older?")
+// function confirmAge(ageOver){
+//     if(ageOver){
+//         alert("you may proceed");
+//     } else {
+//         alert("nah! stay out!");
+//     }
+// }
+//
+// console.log(confirmAge(ageOver));
 
 // ================ IF / ELSE IF / ELSE STATEMENT SYNTAX ===============
 // if(condition1){
@@ -203,8 +209,32 @@ console.log(confirmAge(ageOver));
 
 // =============== IF / ELSE IF/ELSE STATEMENT EXAMPLES ================
 //TODO Together: Write an if/else if/else statement that alerts "It's snowing!" if weather is equal to "snowing", alerts "It's raining" if weather is equal to "raining", alerts "have a nice day" for all other cases
-
+// var weather = "snowing";
+// if (weather === "snowing"){
+//     alert("its snowing");
+// } else if (weather === "raining"){
+//     alert("its raining");
+// } else if (weather === "sunny"){
+//     alert("its sunny");
+// } else{
+//     alert("have a nice day");
+// }
 //TODO Together: refactor the above statement as a function
+// function checkWeather(weather) {
+//     if (weather === "snowing"){
+//         return("its snowing");
+//     } else if (weather === "raining"){
+//         return("its raining");
+//     } else if (weather === "sunny"){
+//         return("its sunny");
+//     } else{
+//         return("have a nice day");
+//     }
+// }
+//
+// console.log(checkWeather("windy"));
+
+
 
 // Together: PIZZA PREFERENCE EXAMPLE
 
@@ -220,15 +250,22 @@ console.log(confirmAge(ageOver));
 // } else {
 //     alert(pizzaPreference + " isn't my favorite, but let's order some!");
 // }
-
+//
 
 
 
 //TODO: Write a function that accepts a string that is a traffic light color as an input. When this function is called, it should return a message informing the user what to do when approaching that color light at an intersection.
+function trafficLight(lightColor) {
+    if(lightColor === "green"){
+        return("Honk!");
+    } else if (lightColor === "yellow") {
+        return("You can do it!");
+    } else {
+        return("HALT! WHO GOES THERE?!");
+    }
+}
 
-
-
-
+console.log(trafficLight("yellow"));
 
 
 // ================ NESTED STATEMENTS ===============
