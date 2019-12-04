@@ -180,6 +180,15 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyRandom, totalAmount) {
+    switch (luckyRandom === 0){
+        case
+    }
+
+
+}
+
+calculateTotal()
 
 /**
  * TODO:
@@ -189,4 +198,4 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
