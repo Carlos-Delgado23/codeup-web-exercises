@@ -17,6 +17,28 @@
  */
 
 /* ########################################################################## */
+var askInput = confirm("Would you like to enter a number?");
+var numInput = Number(prompt("Type a number: "));
+
+
+
+
+
+
+function askForNum(numInput) {
+    if(askInput === true){
+        return numInput;
+            if (numInput % 2 == 0){
+                alert ("is even");
+            } else {
+
+            }
+    } else {
+        alert("Thank you, come again!");
+    }
+}
+
+
 
 /**
  * TODO:

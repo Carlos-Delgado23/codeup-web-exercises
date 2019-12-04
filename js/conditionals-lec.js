@@ -293,7 +293,17 @@ console.log(trafficLight("yellow"));
 
 
 
-// ================ TERNARY STATEMENT ================
+
+
+
+
+
+
+
+
+
+
+    // ================ TERNARY STATEMENT ================
 
 //TODO Together: Regular way
 
@@ -310,12 +320,15 @@ console.log(trafficLight("yellow"));
 
 // var success = true;
 // var message = (success) ? "Operation was successful from tern." : "Oops, something went wrong from tern.";
-// console.log(message)
+// console.log(message);
+
+
+
 
 
 //TODO: Refactor the following conditional as a ternary
 
-// var weather = "sunny";
+var weather = "sunny";
 // var weatherMessage;
 
 // if(weather === "rainy"){
@@ -325,8 +338,8 @@ console.log(trafficLight("yellow"));
 // }
 
 //WRITE YOUR TERNARY STATEMENT HERE!
-
-
+var weatherMessage = (weather === "rainy") ? "It's raining!" : "Have a nice Day!";
+console.log(weatherMessage);
 
 // =============== SWITCH STATEMENT ================
 //TODO Together:
