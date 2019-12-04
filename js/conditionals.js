@@ -18,10 +18,52 @@
 
 /* ########################################################################## */
 
+
+
+// var askInput = confirm("Would you like to enter a number?");
+
+//
+// function askForNum(askInput) {
+//     if (askInput === false) {
+//         alert("Thank you!");
+//     } else {
+//         if (askInput === true) {
+//             var numInput = Number(prompt("Type a number: "));
+//
+//
+//             if (isNaN(numInput)) {
+//                 alert("Not a number");
+//             }
+//             // Check to see if even
+//             else if (numInput % 2 === 0) {
+//                 alert("is even");
+//                 alert("your number + 100 is: " + (numInput + 100));
+//                 if (numInput < 0) {
+//                     alert("your number is Negative");
+//                 } else {
+//                     alert("you number is Positive");
+//                 }
+//             }
+//             // It's odd
+//             else {
+//                 alert("is odd");
+//                 alert("your number + 100 is: " + (numInput + 100));
+//                 if (numInput < 0) {
+//                     alert("Number is Negtive");
+//                 } else {
+//                     alert("Number is Positive");
+//                 }
+//             }
+//         }
+//     }
+// }
+//
+// console.log(askForNum(askInput));
+
 /**
  * TODO:
  * Create a function named `analyzeColor` that accepts a string that is a color
- * name as input. This function should return a message that related to that
+ * name as input. This function should return a message that's related to that
  * color. Only worry about the colors defined below, if the color passed is not
  * one of the ones defined below, return a message that says so
  *
@@ -36,6 +78,21 @@
  * console.logging the function's return value
  */
 
+// function analyzeColor(color){
+//     if(color === 'blue') {
+//         return "blue is the color of the sky";
+//     } else if (color === 'red') {
+//         return "Strawberries are red";
+//     } else if (color === 'cyan') {
+//         return "I don't know anything about cyan";
+//     } else {
+//         return "No valid color has been defined"
+//     }
+// }
+//
+// console.log(analyzeColor('red'));
+
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -48,11 +105,32 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+// console.log(analyzeColor(randomColor));
+
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+// var colorMessage;
+// function analyzeColor(color){
+//     switch (color) {
+//         case 'blue':
+//         colorMessage = "blue is the color of the sky";
+//             break;
+//         case 'red':
+//         colorMessage = "Strawberries are red";
+//             break;
+//         case 'cyan':
+//         colorMessage = "I don't know anything about cyan";
+//             break;
+//         default:
+//         colorMessage = "No valid color has been defined";
+//     }
+//     return colorMessage;
+// }
+
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -60,6 +138,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+// var colorInput = prompt("Type in a color:")
+// var colorMessage;
+// function analyzeColor(colorInput){
+//     switch (colorInput) {
+//         case 'blue':
+//             colorMessage = "blue is the color of the sky";
+//             break;
+//         case 'red':
+//             colorMessage = "Strawberries are red";
+//             break;
+//         case 'cyan':
+//             colorMessage = "I don't know anything about cyan";
+//             break;
+//         default:
+//             colorMessage = "No valid color has been defined";
+//     }
+//     return colorMessage;
+// }
+//
+// console.log(analyzeColor(colorInput));
 
 /* ########################################################################## */
 
@@ -82,6 +180,15 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyRandom, totalAmount) {
+    switch (luckyRandom === 0){
+        case
+    }
+
+
+}
+
+calculateTotal()
 
 /**
  * TODO:
@@ -91,4 +198,4 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
