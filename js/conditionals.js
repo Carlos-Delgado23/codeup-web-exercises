@@ -181,14 +181,35 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 function calculateTotal(luckyRandom, totalAmount) {
-    switch (luckyRandom === 0){
-        case
+    var message;
+    switch (luckyRandom){
+        case 0:
+            message = "sorry, no discount";
+            break;
+        case 1:
+            message = "Your total with disc is: $" + (totalAmount - ((10/100) * totalAmount));
+            break;
+        case 2:
+            message = "Your total with disc is: $" + (totalAmount - ((25/100) * totalAmount));
+            break;
+        case 3:
+            message = "Your total with disc is: $" + (totalAmount - ((35/100) * totalAmount));
+            break;
+        case 4:
+            message = "Your total with disc is: $" + (totalAmount - ((50/100) * totalAmount));
+            break;
+        case 5:
+            message = "*BING BING BING* WE HAVE A LUCKY WINNERRR!!! All FREE 99!!!"
+            break;
+        default:
+            message = "Your total is: $" + totalAmount;
+            break;
     }
-
+        return message;
 
 }
 
-calculateTotal()
+console.log(calculateTotal(3, 350));
 
 /**
  * TODO:
