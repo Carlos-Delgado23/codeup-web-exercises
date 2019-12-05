@@ -214,9 +214,19 @@ console.log(calculateTotal(3, 350));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
- * Prompt the user for their total bill, then use your `calculateTotal` function
- * and alerts to display to the user what their lucky number was, what their
- * price before the discount was, and what their price after the discount is.
+ * Prompt the user for their total bill,
+ *
+ * then use your `calculateTotal` function and
+ *
+ * alerts to display to the user what their lucky number was,
+ * what their price before the discount was,
+ * and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
+var promptBill = parseFloat(prompt("What is your total bill?"));
+
+alert("Your lucky number is: " + luckyNumber);
+alert("Your price before your discount was: $" + promptBill);
+alert(calculateTotal(luckyNumber, promptBill));
+alert("Whoop! Whoop!");
