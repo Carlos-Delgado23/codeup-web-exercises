@@ -181,21 +181,52 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 function calculateTotal(luckyRandom, totalAmount) {
-    switch (luckyRandom === 0){
-        case
+    var message;
+    switch (luckyRandom){
+        case 0:
+            message = "sorry, no discount";
+            break;
+        case 1:
+            message = "Your total with disc is: $" + (totalAmount - ((10/100) * totalAmount));
+            break;
+        case 2:
+            message = "Your total with disc is: $" + (totalAmount - ((25/100) * totalAmount));
+            break;
+        case 3:
+            message = "Your total with disc is: $" + (totalAmount - ((35/100) * totalAmount));
+            break;
+        case 4:
+            message = "Your total with disc is: $" + (totalAmount - ((50/100) * totalAmount));
+            break;
+        case 5:
+            message = "*BING BING BING* WE HAVE A LUCKY WINNERRR!!! All FREE 99!!!"
+            break;
+        default:
+            message = "Your total is: $" + totalAmount;
+            break;
     }
-
+        return message;
 
 }
 
-calculateTotal()
+console.log(calculateTotal(3, 350));
 
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
- * Prompt the user for their total bill, then use your `calculateTotal` function
- * and alerts to display to the user what their lucky number was, what their
- * price before the discount was, and what their price after the discount is.
+ * Prompt the user for their total bill,
+ *
+ * then use your `calculateTotal` function and
+ *
+ * alerts to display to the user what their lucky number was,
+ * what their price before the discount was,
+ * and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
+var promptBill = parseFloat(prompt("What is your total bill?"));
+
+alert("Your lucky number is: " + luckyNumber);
+alert("Your price before your discount was: $" + promptBill);
+alert(calculateTotal(luckyNumber, promptBill));
+alert("Whoop! Whoop!");
