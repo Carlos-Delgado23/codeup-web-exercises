@@ -34,6 +34,7 @@
 
 //TODO TOGETHER: Create a while loop that counts up to 20 (inclusive) by 2s (0, 2, 4...)
 // (0, 2, 4...20)
+
 // var i = 0;
 // while(i <= 20){
 //     console.log(i);
@@ -43,6 +44,11 @@
 
 //TODO TOGETHER: Create a while loop that asks the user to confirm: "Would you like to exit?"
 
+var userConfirm;
+
+while(!userConfirm){
+   userConfirm = confirm("Would you like to exit?");
+}
 
 
 //TODO: Create a while loop that counts to 100 (inclusive) in increments of ten:
