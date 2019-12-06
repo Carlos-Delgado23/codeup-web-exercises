@@ -3,6 +3,8 @@
  *                   WHILE LOOPS
  *********************************************/
 // A while loop will run WHILE a certain condition is true
+
+
 // while (condition) {
 //  code runs.
 // }
@@ -10,6 +12,12 @@
 //TODO TOGETHER: Create a while loop that counts up to 10 (non-inclusive) by 1
 // (0, 1, 2...9)
 
+var i = 0;
+
+while(i < 10){
+    console.log(i);
+    i++;
+}
 
 
 //TODO TOGETHER: Create a while loop that counts down from 20 to 0 (inclusive) by 1
