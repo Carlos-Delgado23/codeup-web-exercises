@@ -23,18 +23,22 @@
 //TODO TOGETHER: Create a while loop that counts down from 20 to 0 (inclusive) by 1
 // (20, 19, 18...0)
 
-var i = 20;
-
-while(i >= 0){
-    console.log(i);
-    i--;
-}
+// var i = 20;
+//
+// while(i >= 0){
+//     console.log(i);
+//     i--;
+// }
 
 
 
 //TODO TOGETHER: Create a while loop that counts up to 20 (inclusive) by 2s (0, 2, 4...)
 // (0, 2, 4...20)
-
+// var i = 0;
+// while(i <= 20){
+//     console.log(i);
+//     i+=2;
+// }
 
 
 //TODO TOGETHER: Create a while loop that asks the user to confirm: "Would you like to exit?"
