@@ -21,20 +21,21 @@ do{
 
     var custOrder = Math.floor(Math.random() * 5) + 1;
 
+    if (custOrder > allCones){
+    console.log('Sorry, only have ' + allCones + ' cones left');
+        continue;
+    } else {
+        allCones -= custOrder;
+    }
 
-    allCones -= custOrder;
-    console.log("-" + custOrder + ' cones sold. EQUALS');
-    console.log(allCones + ' cones left.');
-
+    console.log("-" + custOrder + ' cones sold. = ' + allCones + ' cones left.');
 
     console.log('==================');
-} while (allCones > custOrder);{
-    console.log("-" + custOrder + ' cones sold. = ' + allCones + ' cones left.');
-    if (custOrder > allCones){
-        console.log('Sorry, only have ' + allCones + ' cones left');
-    } else if (allCones === 0){
+    if (allCones === 0) {
         console.log("Yay! I sold them all!");
-    } else {
-        console.log("Sorry, only have " + allCones + ' cones left');
     }
-}
+} while (allCones !== 0);
+
+
+
+
