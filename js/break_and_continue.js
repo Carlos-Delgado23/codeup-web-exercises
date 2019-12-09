@@ -18,3 +18,13 @@ do {
 
 
 } while (true);
+
+
+for (var i = 1; i<= 50; i+=2){
+    if (i === userNumber){
+        console.log("Yikes skipping number " + i);
+        continue;
+    }
+
+    console.log("here's and odd number " + i);
+}
