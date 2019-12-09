@@ -117,6 +117,7 @@
 
 //TODO TOGETHER: Create a do-while loop that counts up to 20 (inclusive) by 2s (0, 2, 4...)
 // (0, 2, 4...20)
+
 // var i = 0;
 // do{
 //     console.log(i);
