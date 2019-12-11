@@ -149,11 +149,11 @@ var books = [
      *      ...
      */
 
-    // for (var i = 0; i<=4; i++){
-    //     console.log("Book # " + (i+1));
-    //     console.log("Title: " + books[i].title);
-    //     console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-    // };
+    for (var i = 0; i<=4; i++){
+        console.log("Book # " + (i+1));
+        console.log("Title: " + books[i].title);
+        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    };
 
     console.log("========== BONUS ==========");
     /**
