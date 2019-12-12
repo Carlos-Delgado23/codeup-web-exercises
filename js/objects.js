@@ -149,11 +149,11 @@ var books = [
      *      ...
      */
 
-    for (var i = 0; i<=4; i++){
-        console.log("Book # " + (i+1));
-        console.log("Title: " + books[i].title);
-        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-    };
+    // for (var i = 0; i<=4; i++){
+    //     console.log("Book # " + (i+1));
+    //     console.log("Title: " + books[i].title);
+    //     console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    // };
 
     console.log("========== BONUS ==========");
     /**
@@ -166,22 +166,25 @@ var books = [
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-function createBook(titleInput, authorInput) {
-    if (titleInput === books.title) {
-        for (var i = 0; i <= 4; i++) {
-            console.log("Book # " + (i + 1));
-            console.log("Title: " + books[i].title);
-            console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-        }
-    }
-    if (authorInput === books.author){
-        for (var i = 0; i <= 4; i++) {
-            console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-        }
-    }
-}
+    var creatBook = function (title, authorFirstName, authorLastName) {
+        var book = {};
+        book.title = title;
+        book.author = {};
+        book.author.firstName = authorFirstName;
+        book.author.lastName = authorLastName;
+        return book;
+    };
+    books.push(creatBook("Leviathan", "Scott", "Westfield"));
+    books.push(creatBook("Levi", "Scotty", "Westy"));
 
-    console.log(createBook(books.title, books.author));
+
+    var showBookInfo = function (book, i) {
+        console.log("Book # " + (i+1));
+        console.log("Title: " + books[i].title);
+        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    };
+    books.forEach(showBookInfo);
+
 
 
 
