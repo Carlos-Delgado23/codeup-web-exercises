@@ -12,7 +12,7 @@ var car = {
             console.log("Welcome driver. Today's weather is... ");
         }
     }
-}
+};
 
 console.log("car was made in " + car.year);
 console.log("car has these options:");
@@ -35,3 +35,40 @@ car.goGoGo("key");
 //     }
 // }
 
+var cars = [
+    car,
+    {
+        make: "Mercedes",
+        model: "G-Wagon",
+        year: 2020,
+        report: function () {
+            console.log(this.year + " " + this.make + " " + this.model);
+        }
+    },
+
+    {
+        make:"Ford",
+        model:"Shelby GT 500",
+        year: 1969,
+        report: function() {
+            console.log(this.year + " " + this.make + " " + this.model);
+        }
+    },
+
+    {
+        make:"Cadillac",
+        model:"Escalade",
+        year:2019,
+        report: function() {
+            console.log(this.year + " " + this.make + " " + this.model);
+        }
+    }
+]
+
+car.report = function() {
+    console.log(this.year + " " + this.make + " " + this.model);
+};
+
+cars.forEach(function(car){
+    car.report();
+});
