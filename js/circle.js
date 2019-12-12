@@ -20,24 +20,29 @@
         // Otherwise, output the complete value
         logInfo: function (doRounding) {
          if (doRounding === true){
-             return Math.floor(this.getArea());
-         }
-            console.log("Area of a circle with radius: " + this.radius + ", is: ");
+
+             return Math.round(this.getArea());
+         } else if (doRounding === false){
+             console.log("Area of a circle with radius: " + this.radius + ", is: ");
+             return this.getArea();
+            }
         }
     };
 
     // log info about the circle
+
     console.log("Raw circle information");
-    circle.logInfo(false);
+    console.log(circle.logInfo(false));
     console.log("Circle information rounded to the nearest whole number");
-    circle.logInfo(true);
+    console.log(circle.logInfo(true));
 
     console.log("=======================================================");
     // TODO: Change the radius of the circle to 5.
-
+circle.radius = 5;
     // log info about the circle
+
     console.log("Raw circle information");
-    circle.logInfo(false);
+    console.log(circle.logInfo(false));
     console.log("Circle information rounded to the nearest whole number");
-    circle.logInfo(true);
+    console.log(circle.logInfo(true));
 })();
