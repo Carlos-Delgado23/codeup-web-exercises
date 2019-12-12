@@ -185,22 +185,6 @@ var books = [
     };
     books.forEach(showBookInfo);
 
-// function createBook(titleInput, authorInput) {
-//     if (titleInput === books.title) {
-//         for (var i = 0; i <= 4; i++) {
-//             console.log("Book # " + (i + 1));
-//             console.log("Title: " + books[i].title);
-//             console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-//         }
-//     }
-//     if (authorInput === books.author){
-//         for (var i = 0; i <= 4; i++) {
-//             console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
-//         }
-//     }
-// }
-//
-//     console.log(createBook(books.title, books.author));
 
 
 
