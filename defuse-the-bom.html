@@ -22,6 +22,7 @@
             if (detonationTimer == 0) {
                 alert('EXTERMINATE!');
                 document.body.innerHTML = '';
+                location.reload();
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
             }
@@ -34,6 +35,7 @@
         // cancel the interval/timeout for updateTimer()
         function defuseTheBOM() {
             clearInterval(setI);
+            location.reload();
         }
 
         // Don't modify anything below this line!
