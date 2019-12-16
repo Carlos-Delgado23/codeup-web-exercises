@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<h1>Head One</h1>
+<p id="paragraph-one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi consequuntur cum debitis
+    laudantium
+    molestias
+    perferendis repudiandae sint velit, voluptatibus.</p>
+<p id="paragraph-two">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio eligendi eos et
+    fugit hic iusto
+    libero minus, molestias nam, necessitatibus quasi sapiente tempore unde vitae. Excepturi quae quia reiciendis.</p>
+
+<ul>
+    <li class="odd-list">list one</li>
+    <li class="even-list">list two</li>
+    <li class="odd-list">list three</li>
+    <li class="even-list">list four</li>
+    <li class="odd-list">list five</li>
+</ul>
+
+
+<script>
+    var paragraph = document.getElementById('paragraph-one');
+    console.log(paragraph);
+
+    var listItems = document.getElementsByTagName('li');
+    console.log(listItems[0]);
+
+    var listItemsByClass = document.getElementsByClassName('even-list');
+    console.log(listItemsByClass);
+
+    for (var i = 0; i < listItems.length; i++){
+        console.log(listItems[i].innerText);
+    }
+
+
+</script>
+</body>
+</html>
