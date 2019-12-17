@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Mapbox Maps</title>
+
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+
+<script src="js/keys.js"></script>
+
+
+<!---------------CUSTOM JS----------------->
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 9,
+        center: [-98.4916, 29.4252],
+        zoomResize: true
+    });
+
+
+    //setting longitude and latitude in a variable for easier input.
+    var llOne = [-98.5966, 29.5864]; //san antonio, location
+    var llTwo = [-98.3262, 29.5751]; //selma location
+    var llThree = [-97.9388, 29.8710]; //new braunfels location
+
+    var pluckers = [
+        {
+            sanAntonio: [-98.5966, 29.5864],
+            selma: [-98.3262, 29.5751],
+            newBraunfels: [-97.9388, 29.8710]
+        }];
+
+    //marker options for styling
+    var markerOptions = {
+        color: 'red',
+    };
+
+    //making the popup variable before placing it inside the marker variable.
+    var pluckersPopup = new mapboxgl.Popup()
+        .setLngLat()
+        .setHTML("<p>Pluckers!</p>")
+        .addTo(map);
+
+    //creating the variables and placing the popup inside as well.
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat(llOne)
+        .setPopup(pluckersPopup)
+        .addTo(map);
+
+
+
+
+    geocode('15651 I-10 W, San Antonio, TX 78249', mapboxToken).then(function (result) {
+        map.setCeneter(result)
+        map.setZoom(10)
+    });
+
+
+
+
+
+
+
+
+
+    // map.addControl(new mapboxgl.NavigationControl()
+    //     .addTo(map)
+    // );
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
