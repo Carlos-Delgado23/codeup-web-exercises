@@ -131,7 +131,35 @@ function getLowestNumber (x, y, z) {
 
 
 
+//---------- CODEWARS -------------//
 
+// Given an array of integers, return a new array with each value doubled.
+    // For example:
+    // [1, 2, 3] --> [2, 4, 6]
+
+// For the beginner, try to use the map method
+// it comes in very handy quite a lot so is a good one to know.
+
+function maps(x){
+    var double = x.map(function(x){
+        return x*2;
+    })
+    return double;
+};
+console.log(maps([1, 2, 3]), [2, 4, 6]);
+console.log(maps([4, 1, 1, 1, 4]), [8, 2, 2, 2, 8]);
+console.log(maps([2, 2, 2, 2, 2, 2]), [4, 4, 4, 4, 4, 4]);
+
+
+
+// Simple, remove the spaces from the string, then return the resultant string.
+function noSpace(x){
+    return x.split(" ").join("");
+}
+
+console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'), '8j8mBliB8gimjB8B8jlB');
+console.log(noSpace('8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd'), '88Bifk8hB8BB8BBBB888chl8BhBfd');
+console.log(noSpace('8aaaaa dddd r     '), '8aaaaaddddr');
 
 
 
