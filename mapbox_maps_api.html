@@ -24,6 +24,7 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
 
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 
 
 <!---------------CUSTOM JS----------------->
@@ -38,45 +39,40 @@
     });
 
 
-    //setting longitude and latitude in a variable for easier input.
-    var llOne = [-98.5966, 29.5864]; //san antonio, location
-    var llTwo = [-98.3262, 29.5751]; //selma location
-    var llThree = [-97.9388, 29.8710]; //new braunfels location
 
     var pluckers = [
         {
-            sanAntonio: [-98.5966, 29.5864],
-            selma: [-98.3262, 29.5751],
-            newBraunfels: [-97.9388, 29.8710]
-        }];
-
-    //marker options for styling
-    var markerOptions = {
-        color: 'red',
-    };
-
-    //making the popup variable before placing it inside the marker variable.
-    var pluckersPopup = new mapboxgl.Popup()
-        .setLngLat()
-        .setHTML("<p>Pluckers!</p>")
-        .addTo(map);
-
-    //creating the variables and placing the popup inside as well.
-    var marker = new mapboxgl.Marker(markerOptions)
-        .setLngLat(llOne)
-        .setPopup(pluckersPopup)
-        .addTo(map);
+            address: "15651 I-10 W, San Antonio, TX 78249",
+            popupHTML: "<p>Pluckers</p><p>WINGS & MORE</p>"
+        },
+        {
+            address: "14881 I-35, Selma, TX 78154",
+            popupHTML: "<p>Pluckers</p><p>in Selma</p><p>WINGS & MORE</p>"
+        },
+        {
+            address: "105 N Interstate 35, San Marcos, TX 78666",
+            popupHTML: "<p>Pluckers</p><p>in New Braunfels</p><p>WINGS & MORE</p>"
+        }
+    ];
 
 
 
 
-    geocode('15651 I-10 W, San Antonio, TX 78249', mapboxToken).then(function (result) {
-        map.setCeneter(result)
-        map.setZoom(10)
-    });
+function placeMarkerAndPopup(info, token, map) {
+    info.forEach(function (info) {
+        geocode(info.address, token).then(function (coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+            marker();
+        });
+    })
+}
 
-
-
+placeMarkerAndPopup(pluckers, mapboxToken, map);
 
 
 
