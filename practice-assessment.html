@@ -385,6 +385,77 @@
    //
    //  ```
 
+
+
+    function remove9s(inputArray){
+    var output = [];
+
+        for (var i=0;i<inputArray.length;i++){
+            if (inputArray[i] !== 9){
+                output.push(inputArray[i]);
+            }
+        }
+        return output;
+    }
+
+
+
+   function capitalizeName(nameIn) {
+       var str = nameIn.split(' ');
+       for (var i = 0, x = str.length; i < x; i++) {
+           str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+       }
+
+       return str.join(" ");
+   }
+
+   function capitalizeAllNames(namesInput) {
+       var nameArr = [];
+
+       for(var i = 0; i<namesInput.length;i++) {
+
+           nameArr.push(capitalizeName(namesInput[i]));
+       }
+       return nameArr;
+   }
+
+
+
+   function countVowels(x) {
+       var totalVowels = 0;
+       var str = x.split('');
+
+       str.forEach(function (stri) {
+           if (stri.match(/[aeiouAEIOU]/)){
+               totalVowels++;
+           }
+       });
+       return totalVowels;
+   }
+
+
+function analyzeWord(word) {
+    var output = {};
+    output.word = word;
+    output.numberOfLetters = word.length;
+    output.numberOfVowels = countVowels(word);
+
+    return output
+
+}
+
+
+function analyzeWords(wordArr) {
+    var output = [];
+
+    wordArr.forEach(function (word) {
+        output.push(analyzeWord(word));
+    })
+    return output;
+}
+
+    
+
 </script>
 </body>
 </html>
