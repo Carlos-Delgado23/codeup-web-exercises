@@ -35,6 +35,21 @@
    function filterNumbers(inputArray){
        var arrArray = [];
 
+       //===== forEach LOOP =====//
+       inputArray.forEach(function (item) {
+            if (typeof item === 'number'){
+                arrArray.push(item);
+            }
+       })
+
+       //====== FUNCTION IN THIS .SORT() CONSIDERS 0's IN NUMBERS FOR SORTING =====//
+       return arrArray.sort(function (a,b) {
+            return a - b;
+       });
+
+
+
+       //===== or for-loop =====///
        for(var i = 0; i<inputArray.length; i++){
            if(typeof inputArray[i] === 'number'){
                arrArray.push(inputArray[i]);
@@ -44,6 +59,11 @@
    }
 
    console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
+
+
+
+
+
 
 
 
@@ -58,21 +78,35 @@
              name: "Chompers",
              breed: "Pug",
              age: 7
-         },
-         {
-             name: "Freddy",
-             breed: "Lab",
-             age: 4
-         },
-         {
-             name: "Mr. Pig",
-             breed: "Mastif",
-             age: 10
-         }
+        },
+        {
+            name: "Freddy",
+            breed: "Lab",
+            age: 4
+        },
+        {
+            name: "Mr. Pig",
+            breed: "Mastif",
+            age: 10
+        }
+
      ];
 
 
    function getOlder(inputArray){
+
+       // ====== FOR EACH =====/
+       inputArray.forEach(function (dog) {
+           //==== DIFFERENT WAYS OF INCREMENTING ====//
+           dog.age += 1;
+           dog.age++;
+           dog.age = dog.age + 1;
+       })
+       return inputArray;
+
+
+
+       //===== FOR-LOOP =====//
        for (var i = 0; i<inputArray.length; i++){
             inputArray[i].age += 1;
        }
@@ -102,6 +136,11 @@
 
 
 
+
+
+
+
+
    console.log("========== FUNCTION THREE ==========");
 
    //  3. Write a function, `washCars()` that takes in a array of car objects and sets the boolean properties of isDirty to false
@@ -128,6 +167,16 @@
             ];
 
     function washCars(carInput) {
+
+        // ====== FOR EACH =====/
+        carInput.forEach(function (car) {
+            car.isDirty = false;
+        });
+        return carInput;
+
+
+
+        // ====== FOR-LOOP =====/
         for (var i = 0; i < carInput.length; i++){
             carInput[i].isDirty = false;
         }
@@ -159,6 +208,14 @@
    //               }
    //           ]
 
+
+
+
+
+
+
+
+
    console.log("========== FUNCTION THREE ==========");
 
    //  4. Write a function, `adminList()` that takes in an array of user objects and returns a count of all admins based on the isAdmin property. Refactor to return an array of admin-only user emails. Refactor again to return an array of user objects that are admins.
@@ -178,10 +235,25 @@
                  email: 'user3@email.com'
              }
          ];
-
+//================ original admin ==============//
     function adminList(adminInput) {
         var numAdmins = [];
+        var totalAdmins = 0;
 
+
+
+        //==== FOR EACH LOOP ====//
+        //===== her example of adding it to the total admin variables =====//
+        adminInput.forEach(function (admin) {
+            if (admin.isAdmin){
+                totalAdmins += 1;
+            }
+        });
+        return totalAdmins;
+
+
+
+        //==== FOR-LOOP ====//
         for (var i = 0; i < adminInput.length; i++) {
             if (adminInput[i].isAdmin === true) {
                 numAdmins.push(adminInput);
@@ -195,13 +267,44 @@
    //     // Example Output (before refactor): 2
 
 
+
+   //=========== example refactor 1 ========//
+   function adminList(adminInput) {
+       var numAdmins = [];
+
+       for (var i = 0; i < adminInput.length; i++) {
+           if (adminInput[i].isAdmin === true) {
+               numAdmins.push(adminInput[i].email);
+           }
+       }
+       return numAdmins;
+   }
+
+   console.log(adminList(adminArr));
+
    //      // Example Output (after 1st refactor):
    //      [
    //          'user1@email.com',
    //          'user2@email.com'
    //      ]
-   //
-   //
+
+
+
+
+
+   //=========== example refactor 2 ========//
+   function adminList(adminInput) {
+       var numAdmins = [];
+
+       for (var i = 0; i < adminInput.length; i++) {
+           if (adminInput[i].isAdmin === true) {
+               numAdmins.push(adminInput[i]);
+           }
+       }
+       return numAdmins;
+   }
+
+   console.log(adminList(adminArr));
    //      // Example Output (after 2nd refactor):
    //      [
    //           {
@@ -213,28 +316,50 @@
    //               email: 'user2@email.com'
    //           }
    //       ]
-   //
-   //  ```
-   //
+
+
+
+
+
+
+
+
+
+
    //  5. Create a function, `makeSandwichObjects()` that takes in two array of strings, breads and fillings and returns an array of sandwichObjects that contain properties for bread and filling and values correspond to the same order of the two passed in arrays. Assume the two array inputs are the same length.
-   //
-   //      ```js
+
+
    //      //     Example Input:
    //
-   //       var breads  = [
-   //           "white",
-   //           "wheat",
-   //           "rhy",
-   //           "white"
-   //       ];
-   //
-   //       var fillings = [
-   //           "pb&j",
-   //           "ham",
-   //           "cheese steak",
-   //           "tuna"
-   //       ];
-   //
+
+   var breadList  = ["white", "wheat", "rhy", "white"];
+   var fillingList = ["pb&j", "ham", "cheese steak", "tuna"];
+
+
+   function makeSandwichObjects(breads, fillings) {
+       var sandwichesBucket = [];
+
+       for (var i = 0; i < breads.length; i++){
+                // var sandwichObject = {
+                //     bread: breads[i],
+                //     filling: fillings[i]
+                // }
+                // sandwichesBucket.push(sandwichObject)
+
+
+           //====== ALTERNATIVE ======//
+           sandwichesBucket.push({
+               bread: breads[i],
+               filling: fillings[i]
+           })
+
+       }
+       return sandwichesBucket
+         }
+
+   console.log(makeSandwichObjects(breadList, fillingList));
+
+
    //       makeSandwichObjects(breads, fillings) // example call to the function
    //  ```
    //      ```js
@@ -259,6 +384,77 @@
    //       ]
    //
    //  ```
+
+
+
+    function remove9s(inputArray){
+    var output = [];
+
+        for (var i=0;i<inputArray.length;i++){
+            if (inputArray[i] !== 9){
+                output.push(inputArray[i]);
+            }
+        }
+        return output;
+    }
+
+
+
+   function capitalizeName(nameIn) {
+       var str = nameIn.split(' ');
+       for (var i = 0, x = str.length; i < x; i++) {
+           str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+       }
+
+       return str.join(" ");
+   }
+
+   function capitalizeAllNames(namesInput) {
+       var nameArr = [];
+
+       for(var i = 0; i<namesInput.length;i++) {
+
+           nameArr.push(capitalizeName(namesInput[i]));
+       }
+       return nameArr;
+   }
+
+
+
+   function countVowels(x) {
+       var totalVowels = 0;
+       var str = x.split('');
+
+       str.forEach(function (stri) {
+           if (stri.match(/[aeiouAEIOU]/)){
+               totalVowels++;
+           }
+       });
+       return totalVowels;
+   }
+
+
+function analyzeWord(word) {
+    var output = {};
+    output.word = word;
+    output.numberOfLetters = word.length;
+    output.numberOfVowels = countVowels(word);
+
+    return output
+
+}
+
+
+function analyzeWords(wordArr) {
+    var output = [];
+
+    wordArr.forEach(function (word) {
+        output.push(analyzeWord(word));
+    })
+    return output;
+}
+
+    
 
 </script>
 </body>
