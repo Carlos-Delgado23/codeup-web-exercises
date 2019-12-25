@@ -260,6 +260,21 @@
    //
    //  ```
 
+   function onlyOddNumbers(seq){
+   var numOdd = [];
+
+   seq.forEach(function (num) {
+       if(num % 2 !== 0) {
+           numOdd.push(num);
+       }
+   });
+   console.log(numOdd);
+   return numOdd;
+   }
+
+   console.log(onlyOddNumbers([1, 2, 3]));
+
+
 </script>
 </body>
 </html>
