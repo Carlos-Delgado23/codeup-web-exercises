@@ -164,5 +164,55 @@ console.log(noSpace('8aaaaa dddd r     '), '8aaaaaddddr');
 
 
 
+// 101 JS //
+const shoppingCart = {
+    tax: 0.08,
+    items: [
+        {
+            title: "orange juice",
+            price: 3.99,
+            quantity: 1
+        },
+        {
+            title: "rice",
+            price: 1.99,
+            quantity: 3
+        },
+        {
+            title: "beans",
+            price: 0.99,
+            quantity: 3
+        },
+        {
+            title: "chili sauce",
+            price: 2.99,
+            quantity: 1
+        },
+        {
+            title: "chocolate",
+            price: 0.75,
+            quantity: 9
+        }
+    ]
+};
+
+// Exercise 96
+// Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
+// Hint: How do you access a key's value on a object? The tax rate is one key of the entire shoppingCart object.
+function getTaxRate(cart){
+    return cart.tax;
+}
+
+
+assert(getTaxRate(shoppingCart), 0.08, "Exercise 96");
+addToDone("Exercise 96 is complete");
+
+// Exercise 97
+// Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart.
+// We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
+function numberOfItemTypes(cart){
+    return cart.items.length;
+}
+// 101 JS END //
 
 
