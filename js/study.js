@@ -275,3 +275,55 @@ function totalNumberOfItems (cart){
 console.log(totalNumberOfItems(shoppingCart));
 
 
+// Exercise 99
+// Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
+// Hint - This should determine the total price divided by the number of types of items. This does not account for each item type's quantity.\
+function getAverageItemPrice(cart){
+    var total = 0;
+    var totalPrice = 0;
+
+    for (var i = 0; i<cart.items.length; i++){
+        totalPrice += cart.items[i].price;
+        total++;
+    }
+    return totalPrice / total;
+};
+
+console.log(getAverageItemPrice(shoppingCart));
+
+// Exercise 100
+// Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
+// Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
+function getAverageSpentPerItem(cart){
+    var totalAmount = 0;
+    var totalPrice = 0;
+
+    for (var i = 0; i<cart.items.length; i++){
+        totalPrice += (cart.items[i].price * cart.items[i].quantity);
+        totalAmount += cart.items[i].quantity;
+    }
+    return totalPrice / totalAmount;
+};
+
+console.log(getAverageSpentPerItem(shoppingCart));
+
+// Exercise 101
+// Write a function named mostSpentOnItem that takes in the shopping cart as input and returns the object associated with the item that has the highest price*quantity.
+// Be sure to do this as programmatically as possible.
+// Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
+// Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+function mostSpentOnItem(cart){
+    var itemPriceTotal = 0;
+    var mostSpent = [];
+
+    for(var i =0; i<cart.items.length;i++){
+
+        if ((cart.items[i].price * cart.items[i].quantity) > itemPriceTotal){
+            itemPriceTotal = (cart.items[i].price * cart.items[i].quantity);
+            mostSpent = cart.items[i];
+        }
+    }
+    return mostSpent;
+};
+
+console.log(mostSpentOnItem(shoppingCart));
