@@ -2,4 +2,5 @@
 *.iml
 .DS_STORE
 js/keys.js
+js/study.js
 practice-assessment.html

@@ -230,4 +230,48 @@ function numberOfItemTypes(cart){
 }
 // 101 JS END //
 
+const shoppingCart = {
+    tax: 0.08,
+    items: [
+        {
+            title: "orange juice",
+            price: 3.99,
+            quantity: 1
+        },
+        {
+            title: "rice",
+            price: 1.99,
+            quantity: 3
+        },
+        {
+            title: "beans",
+            price: 0.99,
+            quantity: 3
+        },
+        {
+            title: "chili sauce",
+            price: 2.99,
+            quantity: 1
+        },
+        {
+            title: "chocolate",
+            price: 0.75,
+            quantity: 9
+        }
+    ]
+};
+// Exercise 98
+// Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
+// This should return the sum of all of the quantities from each item type
+function totalNumberOfItems (cart){
+    var total = 0;
+
+    for (var i = 0; i< cart.items.length; i++){
+        total += cart.items[i].quantity;
+    }
+    return total;
+}
+
+console.log(totalNumberOfItems(shoppingCart));
+
 
