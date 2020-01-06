@@ -44,23 +44,25 @@
      // $('li').css('font-size', '20px');
      // $('li, h3, p').css('background-color', 'yellow');
 
-        $('h3').click(function () {
-            alert('you clicked the header');
-        });
+        // MOUSE OVER EVENTS //
+                $('h3').click(function () {
+                    alert('you clicked the header');
+                });
 
-        $('p').dblclick(function () {
-            $(this).css('font-size', '18px');
-        });
+                $('p').dblclick(
+                    function () {
+                    $(this).css('font-size', '30px');
+                    }
+                );
 
-        $('li').hover(
-            function () {
-                $(this).css('color', '#f00');
-            },
-            function () {
-                $(this).css('color', 'black');
-            }
-        );
-
+                $('li').hover(
+                    function () {
+                        $(this).css('color', '#f00');
+                    },
+                    function () {
+                        $(this).css('color', 'black');
+                    }
+                );
 
     })
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+
+    <style>
+        .background {
+            background: black;
+        };
+        .text{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            color: white;
+            font-size: 50px;
+        };
+    </style>
+
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<p></p>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+    function konami(fn) {
+        var input = "";
+        var pattern = "3838404037393739666513";
+        $(document).keydown(function(e) {
+            input += e.keyCode;
+            if (input.indexOf(pattern) !== -1) {
+                fn();
+                input = "";
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        konami(function() {
+            alert("You did the Konami! W00t!");
+        });
+    });
+
+</script>
+</body>
+</html>
