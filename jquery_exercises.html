@@ -36,14 +36,30 @@
         // jQuery code goes here //
 
 
-     $('.important').css('border', '1px solid #f00');
+     // $('.important').css('border', '1px solid #f00');
+     //
+     // // alert text in element by selecting the class
+     // alert($('h3').text());
+     //
+     // $('li').css('font-size', '20px');
+     // $('li, h3, p').css('background-color', 'yellow');
 
-     // alert text in element by selecting the class
-     alert($('h3').text());
+        $('h3').click(function () {
+            alert('you clicked the header');
+        });
 
-     $('li').css('font-size', '20px');
-     $('li, h3, p').css('background-color', 'yellow');
+        $('p').dblclick(function () {
+            $(this).css('font-size', '18px');
+        });
 
+        $('li').hover(
+            function () {
+                $(this).css('color', '#f00');
+            },
+            function () {
+                $(this).css('color', 'black');
+            }
+        );
 
 
     })
