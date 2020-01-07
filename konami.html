@@ -89,6 +89,28 @@
         });
     }
 
+    function gradius(fn) {
+        var input = "";
+        var pattern = "383840403739666513";
+        $(document).keydown(function(e) {
+            input += e.keyCode;
+            if (input.indexOf(pattern) !== -1) {
+                fn();
+                input = "";
+            }
+        });
+    }
+    $(document).ready(function() {
+        gradius(function() {
+            $("div").prepend("<h1> GRADIUS II</h1>" + "<x-nes src='roms/gradiusii.nes'>");
+            $("h1").addClass('gradient-color');
+            $('*').css('background', 'black');
+
+            alert("Gradius II!");
+            $('x-nes').trigger('play');
+        });
+    });
+
     $(document).ready(function() {
         konami(function() {
             $("div").prepend("<h1> Contra </h1>" + "<x-nes src='roms/Contra.nes'>");
@@ -96,10 +118,8 @@
             $('*').css('background', 'black');
 
             alert("LETS PLAY!");
-            $('x-nes').trigger('play');
+            $('x-nes').trigger('play').addClass('nes-fullscreen');
         });
-    //
-    //
     });
 </script>
 
