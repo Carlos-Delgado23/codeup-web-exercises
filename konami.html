@@ -16,7 +16,6 @@
             justify-content: center;
             align-items: center;
         }
-
         x-nes {
             width: 100vw;
             display: flex;
@@ -36,18 +35,14 @@
             /*-webkit-text-fill-color: transparent;*/
             -webkit-animation: hue 10s infinite linear, fadein 2s;
         }
-
         @keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
         }
-
-         /*Safari, Chrome and Opera > 12.1 */
         @-webkit-keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
         }
-
         @-webkit-keyframes hue {
             from {
                 -webkit-filter: hue-rotate(0deg);
@@ -61,67 +56,80 @@
 </head>
 
 <!-- START OF BODY -->
-<body>
-<h2>Enter Konami Code</h2>
+    <body>
+    <h2>Enter Konami Code</h2>
 
-<audio id="mysoundclip" preload="none">
-    <source src="audio/thx-sound-test.wav" type="audio/wav">
-</audio>
+    <audio id="mysoundclip" preload="none">
+        <source src="audio/thx-sound-test.wav" type="audio/wav">
+    </audio>
 
-<div></div>
-<!--<x-nes src='roms/Contra.nes'>-->
+    <div></div>
+
+
+
 
 <!-- SCRIPTS -->
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script>
-    "use strict";
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
+    <!-- PACMAN SCRIPT -->
+        <script>
+            "use strict";
 
-    function konami(fn) {
-        var input = "";
-        var pattern = "3838404037393739666513";
-        $(document).keydown(function(e) {
-            input += e.keyCode;
-            if (input.indexOf(pattern) !== -1) {
-                fn();
-                input = "";
+            function pacman(fn) {
+                var input = "";
+                var pattern = "383840403739666513";
+                $(document).keydown(function(e) {
+                    input += e.keyCode;
+                    if (input.indexOf(pattern) !== -1) {
+                        fn();
+                        input = "";
+                    }
+                });
             }
-        });
-    }
+            $(document).ready(function() {
+                pacman(function() {
+                    // $('.contra').pause();
 
-    function gradius(fn) {
-        var input = "";
-        var pattern = "383840403739666513";
-        $(document).keydown(function(e) {
-            input += e.keyCode;
-            if (input.indexOf(pattern) !== -1) {
-                fn();
-                input = "";
+                    $('#contra').remove();
+                    $("div").prepend('<div class=pacman>'+ "<h1> PACMAN</h1>" +
+                        "<x-nes id='pacman' src='roms/pacman.nes'>" +
+                        '</div>');
+                    $("h1").addClass('gradient-color');
+                    $('*').css('background', 'black');
+
+                    alert("Pac-Man");
+                    $('#pacman').trigger('play');
+                });
+            });
+
+
+    <!-- CONTRA SCRIPT-->
+
+            function contra(fn) {
+                var input = "";
+                var pattern = "3838404037393739666513";
+                $(document).keydown(function(e) {
+                    input += e.keyCode;
+                    if (input.indexOf(pattern) !== -1) {
+                        fn();
+                        input = "";
+                    }
+                });
             }
-        });
-    }
-    $(document).ready(function() {
-        gradius(function() {
-            $("div").prepend("<h1> GRADIUS II</h1>" + "<x-nes src='roms/gradiusii.nes'>");
-            $("h1").addClass('gradient-color');
-            $('*').css('background', 'black');
 
-            alert("Gradius II!");
-            $('x-nes').trigger('play');
-        });
-    });
+            $(document).ready(function() {
+                contra(function() {
+                    $('.pacman').remove();
+                    $("div").prepend('<div class=contra>'+ "<h1> Contra </h1>" +
+                        "<x-nes id='contra' src='roms/Contra.nes'>"  + '</div>');
+                    $("h1").addClass('gradient-color');
+                    $('*').css('background', 'black');
 
-    $(document).ready(function() {
-        konami(function() {
-            $("div").prepend("<h1> Contra </h1>" + "<x-nes src='roms/Contra.nes'>");
-            $("h1").addClass('gradient-color');
-            $('*').css('background', 'black');
-
-            alert("LETS PLAY!");
-            $('x-nes').trigger('play').addClass('nes-fullscreen');
-        });
-    });
-</script>
+                    alert("Contra");
+                    $('#contra').trigger('play');
+                });
+            });
+        </script>
 
 
 </body>
