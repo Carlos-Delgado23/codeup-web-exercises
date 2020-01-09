@@ -7,6 +7,26 @@
         .invisible {
             visibility: hidden;
         }
+        .frames{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .frame  {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem;
+            height: 200px;
+            width: 150px;
+            border: black 5px solid;
+        }
+
+        button {
+            margin-left: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -51,17 +71,89 @@
         <dt>Fact Ten</dt>
         <dd class="invisible">Evidence of Zion’s earliest inhabitants dates back over 8,000 years.</dd>
     </dl>
-<button type="button"> click </button>
+
+    <button type="button" class="faq"> click </button>
+
+    <h3>Yellowstone</h3>
+    <ul>
+        <li>Yellowstone is bigger than two U.S. states.</li>
+        <li>A veteran of the Lewis and Clark expedition may have been the first American to see Yellowstone.</li>
+        <li>The park sits atop the largest supervolcano in North America.</li>
+        <li>A painter played a crucial role in Yellowstone’s creation.</li>
+    </ul>
+
+    <h3>Yosemite</h3>
+    <ul>
+        <li>It was home to the country's first park guardian.</li>
+        <li>When the timing is right, one of the park's  waterfalls glows.</li>
+        <li>Buffalo soldiers were some of the park's first protectors.</li>
+        <li>The soda springs cabin is no place to grab a drink.</li>
+    </ul>
+
+    <h3>Grand Canyon</h3>
+    <ul>
+        <li>No one knows how old it is.</li>
+        <li>The Grand Canyon creates its own weather.</li>
+        <li>It's not the deepest canyon in the world.</li>
+        <li>There are no dinosaur bones in the Grand Canyon.</li>
+    </ul>
+
+<div class="frames">
+
+    <div class="div-one">
+        <div class="frame one"> 1 </div>
+    </div>
+    <button type="button" class="frame-btn-one">one</button>
+
+    <div class="div-two">
+        <div class="frame two"> 2 </div>
+    </div>
+    <button type="button" class="frame-btn-two">two</button>
+
+    <div class="div-three">
+        <div class="frame three"> 3 </div>
+    </div>
+    <button type="button" class="frame-btn-three">three</button>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
     "use strict";
- $('button').click(function () {
+ $('.faq').click(function () {
     $('dd').toggleClass('invisible');
- })
+ });
+
 $('dt').click(function () {
     $(this).css('background-color', 'yellow');
-})
+});
+
+
+
+
+$('ul').each(function () {
+    $('ul').on('click', function () {
+    $(this).children().last().css('background-color', 'yellow');
+    })
+});
+    $('h3').click(function () {
+        $(this).next().children().css('font-weight', 'bold');
+    });
+$('li').click(function () {
+    $(this).parent().children().first().css('color', 'blue');
+});
+
+
+
+
+$('.frame-btn-one').on('click', function () {
+    $('.frames').each(function(index) {
+        if (index % 2 !== 0) {
+            $(this).appendTo().first();
+        }
+    });
+});
+
 
 
 </script>
