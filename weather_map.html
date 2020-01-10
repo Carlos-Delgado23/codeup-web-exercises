@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        #map {
-            width: 100%;
-            height: 700px;
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
         }
     </style>
 
@@ -67,6 +79,7 @@
 <!--    </div>-->
 
 <div id='map'></div>
+<pre id="coordinates" class="coordinates"></pre>
 
 
 
@@ -74,7 +87,7 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
 <script src="js/keys.js"></script>
 <script src="js/skycons.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -84,30 +97,35 @@
 <!--MAPBOX-->
         <script>
             mapboxgl.accessToken = mapboxToken;
+            var coordinates = document.getElementById('coordinates');
             var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v9',
                 zoom: 9,
-                center: [-98.4916, 29.4252],
+                center: [-98.4911, 29.4243],
                 zoomResize: true
             });
 
+            var marker = new mapboxgl.Marker({
+                draggable: true
+            })
+                .setLngLat([-98.4911, 29.4243])
+                .addTo(map);
 
 
-            function placeMarkerAndPopup(info, token, map) {
-                info.forEach(function (info) {
-                    geocode(info.address, token).then(function (coordinates) {
-                        var popup = new mapboxgl.Popup()
-                            .setHTML(info.popupHTML);
-                        var marker = new mapboxgl.Marker()
-                            .setLngLat(coordinates)
-                            .addTo(map)
-                            .setPopup(popup);
-                        marker();
-                    });
-                })
+
+            function onDragEnd() {
+                var lngLat = marker.getLngLat();
+                coordinates.style.display = 'block';
+                coordinates.innerHTML =
+                    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
             }
-            </script>
+            marker.on('dragend', onDragEnd);
+
+            console.log(onDragEnd());
+            console.log(marker.getLngLat().lng);
+            // console.log(lngLat.lng, lngLat.lat);
+        </script>
 
 <!--SKYCONS-->
         <script>
@@ -149,7 +167,7 @@
             "use strict";
 
             var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-                '/37.8267,-122.4233');
+                '/' + marker.getLngLat().lat +',' + marker.getLngLat().lng);
 
             // current //
                     xhr.done(function (data) {
@@ -169,22 +187,13 @@
 
                             var iconObject = data.daily.data[i].icon.toString();
 
-                            // var iconCond = function () {
-                            //     if(iconObject === icons.set(list[i]){
-                            //         $('.weIcon').append();
-                            //     }
-                            // };
-
                             var cloudsObject = data.daily.data[i].cloudCover;
 
-                            var humidityObject = data.daily.data[i].humidity;
+                            var humidityObject = data.daily.data[i].humidity * 100;
 
                             var windObject = data.daily.data[i].windSpeed;
 
                             var pressureObject = data.daily.data[i].pressure;
-
-
-
 
 
                     // CONDITIONALS TO APPEND DATA //
@@ -195,8 +204,8 @@
                                 icons.add('today-icon', iconObject);
 
                                 $('.day-one-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '%' + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + ' mph' + '</h5>' + '<br>' +
                                     '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
 
                             } else if (i === 1){
@@ -206,8 +215,8 @@
                                 icons.add('tomorrow-icon', iconObject);
 
                                 $('.day-two-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '%' + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + ' mph' + '</h5>' + '<br>' +
                                     '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
 
                             } else if (i === 2){
@@ -217,8 +226,8 @@
                                 icons.add('after-tomorrow-icon', iconObject);
 
                                 $('.day-three-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '%' + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + ' mph' + '</h5>' + '<br>' +
                                     '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
                             }
                         }
