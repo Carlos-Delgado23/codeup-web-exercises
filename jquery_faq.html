@@ -27,9 +27,19 @@
         button {
             margin-left: 1rem;
         }
+
+        .hide {
+            display: none;
+        }
     </style>
 </head>
 <body>
+
+<div>
+    <h1>Would you like to sign up for out newsletter?</h1>
+    <span>x</span>
+</div>
+
 
 <h1>ZION NATIONAL PARK</h1>
     <dl>
@@ -75,7 +85,7 @@
     <button type="button" class="faq"> click </button>
 
     <h3>Yellowstone</h3>
-    <ul>
+    <ul class="hide">
         <li>Yellowstone is bigger than two U.S. states.</li>
         <li>A veteran of the Lewis and Clark expedition may have been the first American to see Yellowstone.</li>
         <li>The park sits atop the largest supervolcano in North America.</li>
@@ -83,7 +93,7 @@
     </ul>
 
     <h3>Yosemite</h3>
-    <ul>
+    <ul class="hide">
         <li>It was home to the country's first park guardian.</li>
         <li>When the timing is right, one of the park's  waterfalls glows.</li>
         <li>Buffalo soldiers were some of the park's first protectors.</li>
@@ -91,7 +101,7 @@
     </ul>
 
     <h3>Grand Canyon</h3>
-    <ul>
+    <ul class="hide">
         <li>No one knows how old it is.</li>
         <li>The Grand Canyon creates its own weather.</li>
         <li>It's not the deepest canyon in the world.</li>
@@ -116,6 +126,11 @@
     <button type="button" class="frame-btn-three">three</button>
 
 </div>
+
+<h2 class="hide">would you like to register?</h2>
+
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
@@ -154,8 +169,17 @@ $('.frame-btn-one').on('click', function () {
     });
 });
 
+$('span').click(function () {
+    $(this).parent().hide();
+});
 
 
+
+    $('h3').click(function () {
+        $(this).next().slideToggle(1050);
+    });
+
+$('h2').fadeIn(8000);
 </script>
 </body>
 </html>
