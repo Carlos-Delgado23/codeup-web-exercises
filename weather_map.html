@@ -17,8 +17,9 @@
         <div class="col">
             <div class="card bg-dark mb-3">
                 <div class="card-header">Header</div>
-                <div class="card" style="width: 18rem;">
+                <div class="card"">
 
+                <div class="row">
                     <div class="col">
                     <div class="card-body">
                         <h5 class="card-title"></h5>
@@ -40,6 +41,7 @@
                             <p class="card-text day-three-text"></p>
                         </div>
                     </div>
+                </div>
 
                 </div>
             </div>
@@ -76,8 +78,6 @@
                 var dateObject = new Date(data.currently.time * 1000);
                 console.log(dateObject.toString());
 
-
-
         // FOR LOOP //
                 for(var i = 0; i<data.daily.data.length; i++){
 
@@ -97,10 +97,8 @@
                     var pressureObject = data.daily.data[i].pressure;
 
 
-
-
             // CONDITIONALS TO APPEND DATA //
-                    if(i == 0) {
+                    if(i === 0) {
                         $('.day-one-temp').append('<h3>' + tempHighObject + '/' +
                             tempLowObject + '</h3>');
 
@@ -109,7 +107,7 @@
                             '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
                             '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
                             '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
-                    } else if (i == 1){
+                    } else if (i === 1){
                         $('.day-two-temp').append('<h3>' + tempHighObject + '/' +
                             tempLowObject + '</h3>');
 
@@ -118,8 +116,18 @@
                             '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
                             '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
                             '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+                    } else if (i === 2){
+                        $('.day-three-temp').append('<h3>' + tempHighObject + '/' +
+                            tempLowObject + '</h3>');
+
+                        $('.day-three-text').append('<img' + iconObject + '>' + '<br>' +
+                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
                     }
                 }
+
 
                 // $('.card-subtitle').append('<h3>' + tempObject + '</h3>');
                 //
