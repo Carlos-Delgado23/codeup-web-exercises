@@ -7,11 +7,56 @@
     <title>Title</title>
 </head>
 <body>
+<div class="container">
 
 
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <div class="row">
+
+        <div class="col">
+            <div class="card bg-dark mb-3">
+                <div class="card-header">Header</div>
+                <div class="card" style="width: 18rem;">
+
+                    <div class="col">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted day-one-temp"></h6>
+                        <p class="card-text day-one-text"></p>
+                    </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <h6 class="card-subtitle mb-2 text-muted day-two-temp"></h6>
+                            <p class="card-text day-two-text"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <h6 class="card-subtitle mb-2 text-muted day-three-temp"></h6>
+                            <p class="card-text day-three-text"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
@@ -20,15 +65,75 @@
 <script>
     "use strict";
 
-    $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-        '/37.8267,-122.4233').done(function (data) {
-            console.log(data);
+
+    var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
+        '/37.8267,-122.4233');
+
+    // current //
+            xhr.done(function (data) {
+                    console.log(data);
+
+                var dateObject = new Date(data.currently.time * 1000);
+                console.log(dateObject.toString());
 
 
-        var dateObject = new Date(data.currently.time * 1000);
-        console.log(dateObject.toString());
 
-    })
+        // FOR LOOP //
+                for(var i = 0; i<data.daily.data.length; i++){
+
+                // VARIABLES FOR CAPTURING DATA FROM API //
+                    var tempHighObject = data.daily.data[i].temperatureHigh;
+
+                    var tempLowObject = data.daily.data[i].temperatureLow;
+
+                    var iconObject = data.daily.data[i].icon;
+
+                    var cloudsObject = data.daily.data[i].cloudCover;
+
+                    var humidityObject = data.daily.data[i].humidity;
+
+                    var windObject = data.daily.data[i].windSpeed;
+
+                    var pressureObject = data.daily.data[i].pressure;
+
+
+
+
+            // CONDITIONALS TO APPEND DATA //
+                    if(i == 0) {
+                        $('.day-one-temp').append('<h3>' + tempHighObject + '/' +
+                            tempLowObject + '</h3>');
+
+                        $('.day-one-text').append('<img' + iconObject + '>' + '<br>' +
+                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+                    } else if (i == 1){
+                        $('.day-two-temp').append('<h3>' + tempHighObject + '/' +
+                            tempLowObject + '</h3>');
+
+                        $('.day-two-text').append('<img' + iconObject + '>' + '<br>' +
+                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+                    }
+                }
+
+                // $('.card-subtitle').append('<h3>' + tempObject + '</h3>');
+                //
+                // $('.card-text').append('<img' + iconObject + '>' + '<br>' +
+                //     '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                //     '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                //     '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                //     '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+            })
+
+//  tomorrow //
+
+
+
 </script>
 </body>
 </html>
