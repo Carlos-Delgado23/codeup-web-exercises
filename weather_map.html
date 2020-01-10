@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         #map {
-            /* the width and height may be set to any size */
             width: 100%;
             height: 700px;
         }
@@ -14,53 +13,61 @@
 
     <title>Title</title>
 </head>
-<body>
-<div class="container">
 
+<body class="bg-transparent">
 
+<!--    <div class="container bg-transparent">-->
+        <div class="row sticky-top">
+            <div class="col p-0 bg-transparent">
+                <div class="card bg-dark">
+                    <div class="card-header text-white">Weather-R-Us</div>
+                        <div class="card">
+                            <div class="row">
+                                <div class="col p-0 text-center">
+                                    <div class="card-body border-right border-dark">
+                                        <h5 class="card-title">Today</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted day-one-temp"></h6>
 
+                                        <div class="box">
+                                            <canvas id="today-icon" width="64" height="64"></canvas>
+                                        </div>
 
-    <div class="row">
+                                        <p class="card-text day-one-text"></p>
+                                    </div>
+                                </div>
+                                <div class="col p-0 text-center">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tomorrow</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted day-two-temp"></h6>
 
-        <div class="col">
-            <div class="card bg-dark mb-3">
-                <div class="card-header">Header</div>
-                <div class="card">
+                                        <div class="box">
+                                            <canvas id="tomorrow-icon" width="64" height="64"></canvas>
+                                        </div>
 
-                <div class="row">
-                    <div class="col p-0 text-center">
-                    <div class="card-body border-right border-dark">
-                        <h5 class="card-title"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted day-one-temp"></h6>
-                        <p class="card-text day-one-text"></p>
-                    </div>
-                    </div>
-                    <div class="col p-0 text-center">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <h6 class="card-subtitle mb-2 text-muted day-two-temp"></h6>
-                            <p class="card-text day-two-text"></p>
+                                        <p class="card-text day-two-text"></p>
+                                    </div>
+                                </div>
+                                <div class="col p-0 text-center">
+                                    <div class="card-body border-left border-dark">
+                                        <h5 class="card-title">Day After Tomorrow</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted day-three-temp"></h6>
+
+                                        <div class="box">
+                                            <canvas id="after-tomorrow-icon" width="64" height="64"></canvas>
+                                        </div>
+
+                                        <p class="card-text day-three-text"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col p-0 text-center">
-                        <div class="card-body border-left border-dark">
-                            <h5 class="card-title"></h5>
-                            <h6 class="card-subtitle mb-2 text-muted day-three-temp"></h6>
-                            <p class="card-text day-three-text"></p>
-                        </div>
-                    </div>
-                </div>
-
                 </div>
             </div>
         </div>
-
-
-
-    </div>
-</div>
+<!--    </div>-->
 
 <div id='map'></div>
+
 
 
 
@@ -69,114 +76,153 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
+<script src="js/skycons.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 
-<!---->
-<script>
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 9,
-        center: [-98.4916, 29.4252],
-        zoomResize: true
-    });
-
-
-
-    function placeMarkerAndPopup(info, token, map) {
-        info.forEach(function (info) {
-            geocode(info.address, token).then(function (coordinates) {
-                var popup = new mapboxgl.Popup()
-                    .setHTML(info.popupHTML);
-                var marker = new mapboxgl.Marker()
-                    .setLngLat(coordinates)
-                    .addTo(map)
-                    .setPopup(popup);
-                marker();
+<!--MAPBOX-->
+        <script>
+            mapboxgl.accessToken = mapboxToken;
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 9,
+                center: [-98.4916, 29.4252],
+                zoomResize: true
             });
-        })
-    }
-
-    placeMarkerAndPopup(pluckers, mapboxToken, map);
-
-
-    </script>
 
 
 
-<script>
-    "use strict";
+            function placeMarkerAndPopup(info, token, map) {
+                info.forEach(function (info) {
+                    geocode(info.address, token).then(function (coordinates) {
+                        var popup = new mapboxgl.Popup()
+                            .setHTML(info.popupHTML);
+                        var marker = new mapboxgl.Marker()
+                            .setLngLat(coordinates)
+                            .addTo(map)
+                            .setPopup(popup);
+                        marker();
+                    });
+                })
+            }
+            </script>
+
+<!--SKYCONS-->
+        <script>
+            var icons = new Skycons({"monochrome": false}),
+                list  = [
+                    "clear-day",
+                    "clear-night",
+                    "partly-cloudy-day",
+                    "partly-cloudy-night",
+                    "cloudy",
+                    "rain",
+                    "showers-day",
+                    "showers-night",
+                    "sleet",
+                    "rain-snow",
+                    "rain-snow-showers-day",
+                    "rain-snow-showers-night",
+                    "snow",
+                    "snow-showers-day",
+                    "snow-showers-night",
+                    "wind",
+                    "fog",
+                    "thunder",
+                    "thunder-rain",
+                    "thunder-showers-day",
+                    "thunder-showers-night",
+                    "hail"
+                ],
+                i;
+
+            for(i = list.length; i--; )
+                icons.set(list[i], list[i]);
+
+            icons.play();
+        </script>
+
+<!--DARKSKY-->
+        <script>
+            "use strict";
+
+            var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
+                '/37.8267,-122.4233');
+
+            // current //
+                    xhr.done(function (data) {
+                            console.log(data);
+
+                // TIME //
+                        var dateObject = new Date(data.currently.time * 1000);
+                        console.log(dateObject.toString());
+
+                // FOR LOOP //
+                        for(var i = 0; i<data.daily.data.length; i++){
+
+                    // VARIABLES FOR CAPTURING DATA FROM API //
+                            var tempHighObject = Math.round(data.daily.data[i].temperatureHigh);
+
+                            var tempLowObject = Math.round(data.daily.data[i].temperatureLow);
+
+                            var iconObject = data.daily.data[i].icon.toString();
+
+                            // var iconCond = function () {
+                            //     if(iconObject === icons.set(list[i]){
+                            //         $('.weIcon').append();
+                            //     }
+                            // };
+
+                            var cloudsObject = data.daily.data[i].cloudCover;
+
+                            var humidityObject = data.daily.data[i].humidity;
+
+                            var windObject = data.daily.data[i].windSpeed;
+
+                            var pressureObject = data.daily.data[i].pressure;
 
 
-    var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-        '/37.8267,-122.4233');
-
-    // current //
-            xhr.done(function (data) {
-                    console.log(data);
-
-                var dateObject = new Date(data.currently.time * 1000);
-                console.log(dateObject.toString());
-
-        // FOR LOOP //
-                for(var i = 0; i<data.daily.data.length; i++){
-
-                // VARIABLES FOR CAPTURING DATA FROM API //
-                    var tempHighObject = data.daily.data[i].temperatureHigh;
-
-                    var tempLowObject = data.daily.data[i].temperatureLow;
-
-                    var iconObject = data.daily.data[i].icon;
-
-                    var cloudsObject = data.daily.data[i].cloudCover;
-
-                    var humidityObject = data.daily.data[i].humidity;
-
-                    var windObject = data.daily.data[i].windSpeed;
-
-                    var pressureObject = data.daily.data[i].pressure;
-
-
-            // CONDITIONALS TO APPEND DATA //
-                    if(i === 0) {
-                        $('.day-one-temp').append('<h3>' + tempHighObject + '/' +
-                            tempLowObject + '</h3>');
-
-                        $('.day-one-text').append('<img' + iconObject + '>' + '<br>' +
-                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
-                    } else if (i === 1){
-                        $('.day-two-temp').append('<h3>' + tempHighObject + '/' +
-                            tempLowObject + '</h3>');
-
-                        $('.day-two-text').append('<img' + iconObject + '>' + '<br>' +
-                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
-                    } else if (i === 2){
-                        $('.day-three-temp').append('<h3>' + tempHighObject + '/' +
-                            tempLowObject + '</h3>');
-
-                        $('.day-three-text').append('<img' + iconObject + '>' + '<br>' +
-                            '<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
-                            '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
-                    }
-                }
 
 
 
-            })
+                    // CONDITIONALS TO APPEND DATA //
+                            if(i === 0) {
+                                $('.day-one-temp').append('<h3>' + tempHighObject + '°' + '/' +
+                                    tempLowObject + '°' + '</h3>');
 
+                                icons.add('today-icon', iconObject);
 
+                                $('.day-one-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
 
-</script>
+                            } else if (i === 1){
+                                $('.day-two-temp').append('<h3>' + tempHighObject + '°' + '/' +
+                                    tempLowObject + '°' + '</h3>');
+
+                                icons.add('tomorrow-icon', iconObject);
+
+                                $('.day-two-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+
+                            } else if (i === 2){
+                                $('.day-three-temp').append('<h3>' + tempHighObject + '°' + '/' +
+                                    tempLowObject + '°' + '</h3>');
+
+                                icons.add('after-tomorrow-icon', iconObject);
+
+                                $('.day-three-text').append('<h5>' + 'Clouds: ' + cloudsObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Humidity: ' + humidityObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Wind: ' + windObject + '</h5>' + '<br>' +
+                                    '<h5>' + 'Pressure: ' + pressureObject + '</h5>');
+                            }
+                        }
+                    })
+        </script>
 </body>
 </html>
