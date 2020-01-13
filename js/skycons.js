@@ -548,7 +548,7 @@
         var alpha = 1 - t % 1,
             a = cw / 25,
             b = Math.floor(t % 4),
-            x = x = cx + ((b - 1.5) / 1.5) * (b === 1 || b === 2 ? -1 : 1) * cw * 0.16,
+            x  = cx + ((b - 1.5) / 1.5) * (b === 1 || b === 2 ? -1 : 1) * cw * 0.16,
             y = cy;
 
         ctx.fillStyle = color;
@@ -594,21 +594,21 @@
         this.monochrome = typeof(opts.monochrome) === "undefined" ? true :  opts.monochrome;
         opts.colors = opts.colors || {};
         this.colors = {
-            main        : opts.colors.main        || "#111",
-            moon        : opts.colors.moon        || "#353545",
-            fog         : opts.colors.fog         || "#CCC",
-            fogbank     : opts.colors.fogbank     || "#AAA",
-            light_cloud : opts.colors.light_cloud || "#888",
-            cloud       : opts.colors.cloud       || "#666",
-            dark_cloud  : opts.colors.dark_cloud  || "#444",
-            thunder     : opts.colors.thunder     || "#FF0",
-            snow        : opts.colors.snow        || "#C2EEFF",
-            hail        : opts.colors.hail        || "#CCF",
-            sleet       : opts.colors.sleet       || "#C2EEFF",
-            wind        : opts.colors.wind        || "#777",
-            leaf        : opts.colors.leaf        || "#2C5228",
-            rain        : opts.colors.rain        || "#7FDBFF",
-            sun         : opts.colors.sun         || "#FFDC00"
+            main        : opts.colors.main        || "#fff",
+            moon        : opts.colors.moon        || "#fff",
+            fog         : opts.colors.fog         || "#fff",
+            fogbank     : opts.colors.fogbank     || "#fff",
+            light_cloud : opts.colors.light_cloud || "#fff",
+            cloud       : opts.colors.cloud       || "#fff",
+            dark_cloud  : opts.colors.dark_cloud  || "#fff",
+            thunder     : opts.colors.thunder     || "#FFf",
+            snow        : opts.colors.snow        || "#fff",
+            hail        : opts.colors.hail        || "#fff",
+            sleet       : opts.colors.sleet       || "#fff",
+            wind        : opts.colors.wind        || "#fff",
+            leaf        : opts.colors.leaf        || "#A3FF57",
+            rain        : opts.colors.rain        || "#5EF8FF",
+            sun         : opts.colors.sun         || "#FDF200"
         };
 
         if(this.monochrome) {
@@ -618,6 +618,8 @@
         }
         this.resizeClear = !!(opts && opts.resizeClear);
     };
+
+
 
     Skycons.CLEAR_DAY = function(ctx, t, color) {
         var w = ctx.canvas.width,
@@ -921,6 +923,8 @@
             }
         }
     };
+
+
 
     global.Skycons = Skycons;
 }(this));
