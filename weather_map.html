@@ -24,7 +24,16 @@
     <div class="container bg-transparent">
         <div class="row sticky-top">
             <div class="col card black">
-                <div class="card-header text-white text-center" id="weather-head">Weather-R-Us</div>
+                <div class="card-header text-white text-center d-flex flex-wrap justify-content-between">
+                    <h5 id="weather-head" class="align-self-center m-0">Weather-R-Us</h5>
+
+<!--                    <form class="form-inline d-flex flex-wrap justify-content-between my-2 my-lg-0" >-->
+                        <input class="form-control mr-sm-1" id="userSearch" type="text" placeholder="Search"
+                               aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" id="submit" type="button">Search</button>
+<!--                    </form>-->
+
+                </div>
                 <div class="card border-0">
 
                     <div class="row weather">
@@ -74,12 +83,11 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/keys.js"></script>
 <script src="js/skycons.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
 
 
 <!--SKYCONS-->
@@ -125,7 +133,7 @@
         // Start //
               xhr.done(function (data) {
              console.log(data);
-
+                event.preventDefault();
              <!--MAPBOX-->
                     mapboxgl.accessToken = mapboxToken;
                     var map = new mapboxgl.Map({
@@ -259,15 +267,87 @@
                               '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
                       }
                   }
-              });
+
         <!-- DARKSKY WEATHER DEFAULT END -->
 
 
+        <!-- SEARCH MAP -->
+        $('#submit').click(function () {
+            var search = $(userSearch).val();
+
+            geocode(search, mapboxToken).then(function(result) {
+                var lng = result[0].toString();
+                var lat = result[1].toString();
+                console.log(result);
+
+                $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
+                    '/' + lat +',' + lng).done(function (data) {
+                    console.log(data);
+
+                    map.setCenter(result);
+                    map.setZoom(10);
+                    marker.setLngLat(result);
+                    // TIME //
+                    var dateObject = new Date(data.currently.time * 1000);
+                    console.log(dateObject.toString());
+
+                    // FOR LOOP //
+                    for(var i = 0; i<data.daily.data.length; i++){
+
+                        // VARIABLES FOR CAPTURING DATA FROM API //
+                        var tempHighObject = Math.round(data.daily.data[i].temperatureHigh);
+                        var tempLowObject = Math.round(data.daily.data[i].temperatureLow);
+                        var iconObject = data.daily.data[i].icon.toString();
+                        var cloudsObject = data.daily.data[i].cloudCover;
+                        var humidityObject = data.daily.data[i].humidity * 100;
+                        var windObject = data.daily.data[i].windSpeed;
+                        var pressureObject = data.daily.data[i].pressure;
+
+
+                        // CONDITIONALS TO APPEND DATA //
+                        if(i === 0) {
+                            $('.day-one-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                                tempLowObject + '°' + '</h3>');
+                            icons.set('today-icon', iconObject);
+
+                            $('.day-one-text').html(
+                                '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+
+                        } else if (i === 1){
+                            $('.day-two-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                                tempLowObject + '°' + '</h3>');
+                            icons.set('tomorrow-icon', iconObject);
+
+                            $('.day-two-text').html(
+                                '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+
+                        } else if (i === 2){
+                            $('.day-three-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                                tempLowObject + '°' + '</h3>');
+                            icons.set('after-tomorrow-icon', iconObject);
+
+                            $('.day-three-text').html(
+                                '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                                '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+                        }
+                    }
+                });
+            });
+        });
+              });
+
         $('#weather-head').click(
             function (){
-            $('.weather').show();
-        }
-        )
+            $('.weather').toggle();
+        });
         </script>
 </body>
 </html>
