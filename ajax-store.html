@@ -39,26 +39,11 @@
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
 
-        $.ajax("data/inventory.json")
-            .done(function(data){
-                console.log(data);
-                for (var i = 0; i < data.length; i++){
-                    $('#insertProducts').append('<tr>' +
-                        '<td>' + data[i].title + '</td>' +
-                        '<td>' + data[i].quantity + '</td>' +
-                        '<td>' + data[i].price + '</td>' +
-                        '<td>' + data[i].categories + '</td>' +
-                        '</tr>');
-                }
-            });
-
-        $('#btnRefresh').click(function(event) {
-            event.preventDefault();
-            $("#insertProducts").empty();
+        var dataAppend = function() {
             $.ajax("data/inventory.json")
-                .done(function(data){
+                .done(function (data) {
                     console.log(data);
-                    for (var i = 0; i < data.length; i++){
+                    for (var i = 0; i < data.length; i++) {
                         $('#insertProducts').append('<tr>' +
                             '<td>' + data[i].title + '</td>' +
                             '<td>' + data[i].quantity + '</td>' +
@@ -67,6 +52,14 @@
                             '</tr>');
                     }
                 });
+        };
+
+        dataAppend();
+
+        $('#btnRefresh').click(function(event) {
+            event.preventDefault();
+            $("#insertProducts").empty();
+            dataAppend();
         });
 
     })();
