@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/81b9c5abe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
             margin: 0;
@@ -38,247 +39,246 @@
 
 <body class="bg-transparent">
 
-<div class="container bg-transparent">
-    <div class="row sticky-top">
-        <div class="col card black">
-            <div class="card-header text-white text-center d-flex flex-wrap justify-content-between">
-                <h5 id="weather-head" class="align-self-center m-0">Weather-R-Us</h5>
-                <div class="cloudy"></div>
-                <div class="d-inline-flex justify-content-between my-2 my-lg-0">
-                    <input class="form-control mr-sm-1" id="userSearch" type="text" placeholder="Search"
-                           aria-label="Search">
-                    <button class="btn btn-outline-light my-sm-0" id="submit" type="button">Search</button>
-                </div>
+    <div class="container bg-transparent">
+        <div class="row sticky-top">
+            <div class="col card black">
+                <div class="card-header text-white text-center d-flex flex-wrap justify-content-between">
+                    <h5 id="weather-head" class="align-self-center m-0">Weather-R-Us</h5>
+                    <div class="cloudy"></div>
+                    <div class="d-inline-flex justify-content-between my-2 my-lg-0">
+                        <input class="form-control mr-sm-1" id="userSearch" type="text" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-light my-sm-0" id="submit" type="button">Search</button>
+                    </div>
 
-            </div>
-            <div class="card border-0">
-
-                <div class="row weather">
-                    <div class="col p-0 text-center">
-                        <div class="card-body border-right border-dark black">
-                            <h5 class="card-title text-white">Today</h5>
-                            <h6 class="card-subtitle mb-2 text-muted day-one-temp"></h6>
-                            <div class="box">
-                                <canvas id="today-icon" width="64" height="64"></canvas>
-                            </div>
-                            <div class="card-text day-one-text text-color"></div>
-                        </div>
-                    </div>
-                    <div class="col p-0 text-center">
-                        <div class="card-body black">
-                            <h5 class="card-title text-white">Tomorrow</h5>
-                            <h6 class="card-subtitle mb-2 text-muted day-two-temp"></h6>
-                            <div class="box">
-                                <canvas id="tomorrow-icon" width="64" height="64"></canvas>
-                            </div>
-                            <p class="card-text day-two-text text-color"></p>
-                        </div>
-                    </div>
-                    <div class="col p-0 text-center">
-                        <div class="card-body border-left border-dark black">
-                            <h5 class="card-title text-white">Day After</h5>
-                            <h6 class="card-subtitle mb-2 text-muted day-three-temp"></h6>
-                            <div class="box">
-                                <canvas id="after-tomorrow-icon" width="64" height="64"></canvas>
-                            </div>
-                            <p class="card-text day-three-text text-color"></p>
-                        </div>
-                    </div>
                 </div>
-                <div class="black d-flex justify-content-center pb-3">
-                    <button
+                <div class="card border-0">
+
+                    <div class="row weather">
+                        <div class="col p-0 text-center">
+                            <div class="card-body border-right border-dark black">
+                                <h5 class="card-title text-white">Today</h5>
+                                <h6 class="card-subtitle mb-2 text-muted day-one-temp"></h6>
+                                <div class="box">
+                                    <canvas id="today-icon" width="64" height="64"></canvas>
+                                </div>
+                                <div class="card-text day-one-text text-color"></div>
+                            </div>
+                        </div>
+                        <div class="col p-0 text-center">
+                            <div class="card-body black">
+                                <h5 class="card-title text-white">Tomorrow</h5>
+                                <h6 class="card-subtitle mb-2 text-muted day-two-temp"></h6>
+                                <div class="box">
+                                    <canvas id="tomorrow-icon" width="64" height="64"></canvas>
+                                </div>
+                                <p class="card-text day-two-text text-color"></p>
+                            </div>
+                        </div>
+                        <div class="col p-0 text-center">
+                            <div class="card-body border-left border-dark black">
+                                <h5 class="card-title text-white">Day After</h5>
+                                <h6 class="card-subtitle mb-2 text-muted day-three-temp"></h6>
+                                <div class="box">
+                                    <canvas id="after-tomorrow-icon" width="64" height="64"></canvas>
+                                </div>
+                                <p class="card-text day-three-text text-color"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="black d-flex justify-content-center pb-3">
+                        <button
                             class="btn btn-outline-light black btn-sm d-inline-flex align-content-center justify-content-center flex-wrap"
-                            id="hide"
-                            type="button"><i
-                            class="fas fa-sort fa-lg"></i></button>
+                            id="hide" type="button"><i class="fas fa-sort fa-lg"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<div id='map'></div>
+    <div id='map'></div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<script src="js/keys.js"></script>
-<script src="js/skycons.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="js/skycons.js"></script>
 
 
-<!--SKYCONS-->
-<script>
-    var icons = new Skycons({"monochrome": false}),
-        list = [
-            "clear-day",
-            "clear-night",
-            "partly-cloudy-day",
-            "partly-cloudy-night",
-            "cloudy",
-            "rain",
-            "showers-day",
-            "showers-night",
-            "sleet",
-            "rain-snow",
-            "rain-snow-showers-day",
-            "rain-snow-showers-night",
-            "snow",
-            "snow-showers-day",
-            "snow-showers-night",
-            "wind",
-            "fog",
-            "thunder",
-            "thunder-rain",
-            "thunder-showers-day",
-            "thunder-showers-night",
-            "hail"
-        ],
-        i;
+    <!--SKYCONS-->
+    <script>
+        var icons = new Skycons({ "monochrome": false }),
+            list = [
+                "clear-day",
+                "clear-night",
+                "partly-cloudy-day",
+                "partly-cloudy-night",
+                "cloudy",
+                "rain",
+                "showers-day",
+                "showers-night",
+                "sleet",
+                "rain-snow",
+                "rain-snow-showers-day",
+                "rain-snow-showers-night",
+                "snow",
+                "snow-showers-day",
+                "snow-showers-night",
+                "wind",
+                "fog",
+                "thunder",
+                "thunder-rain",
+                "thunder-showers-day",
+                "thunder-showers-night",
+                "hail"
+            ],
+            i;
 
-    for (i = list.length; i--;)
-        icons.set(list[i], list[i]);
+        for (i = list.length; i--;)
+            icons.set(list[i], list[i]);
 
-    icons.play();
-
-
-    <!-- DARKSKY AND MAPBOX -->
-    <!--MAPBOX-->
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10',
-        zoom: 9,
-        center: [-98.4911, 29.4243],
-        zoomResize: true
-    });
-
-    var marker = new mapboxgl.Marker({
-        draggable: true
-    })
-        .setLngLat([-98.4911, 29.4243])
-        .addTo(map);
+        icons.play();
 
 
-    <!-- DARKSKY WEATHER DEFAULT START -->
-    var defaultData = function (data) {
-        // TIME //
-        var dateObject = new Date(data.currently.time * 1000);
-        console.log(dateObject.toString());
-
-        // FOR LOOP //
-        for (var i = 0; i < data.daily.data.length; i++) {
-
-            // VARIABLES FOR CAPTURING DATA FROM API //
-            var tempHighObject = Math.round(data.daily.data[i].temperatureHigh);
-            var tempLowObject = Math.round(data.daily.data[i].temperatureLow);
-            var iconObject = data.daily.data[i].icon.toString();
-            var cloudsObject = data.daily.data[i].cloudCover;
-            var humidityObject = data.daily.data[i].humidity * 100;
-            var windObject = data.daily.data[i].windSpeed;
-            var pressureObject = data.daily.data[i].pressure;
-
-            // CONDITIONALS TO APPEND DATA //
-            if (i === 0) {
-                $('.day-one-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
-                    tempLowObject + '°' + '</h3>');
-                icons.set('today-icon', iconObject);
-
-                $('.day-one-text').html(
-                    '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
-
-            } else if (i === 1) {
-                $('.day-two-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
-                    tempLowObject + '°' + '</h3>');
-                icons.set('tomorrow-icon', iconObject);
-
-                $('.day-two-text').html(
-                    '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
-
-            } else if (i === 2) {
-                $('.day-three-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
-                    tempLowObject + '°' + '</h3>');
-                icons.set('after-tomorrow-icon', iconObject);
-
-                $('.day-three-text').html(
-                    '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
-                    '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
-            }
-        }
-    };
-    <!-- DARKSKY WEATHER DEFAULT END -->
-
-    // MARKER DRAG FUNCTION WHICH UPDATES NEW COORDINATES //
-    function onDragEnd() {
-        var lngLat = marker.getLngLat();
-        $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-            '/' + lngLat.lat + ',' + lngLat.lng).done(function (data) {
-            console.log(data);
-
-
-            defaultData(data);
+        // <!-- DARKSKY AND MAPBOX -->
+        // <!--MAPBOX-->
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            zoom: 9,
+            center: [-98.4911, 29.4243],
+            zoomResize: true
         });
-    }
 
-    marker.on('dragend', onDragEnd);
-    <!-- END OF MAPBOX -->
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4911, 29.4243])
+            .addTo(map);
 
-    <!-- SEARCH MAP -->
-    $('#submit').click(function () {
-        var search = $(userSearch).val();
 
-        geocode(search, mapboxToken).then(function (result) {
-            var lng = result[0].toString();
-            var lat = result[1].toString();
-            console.log(result);
+        // <!-- DARKSKY WEATHER DEFAULT START -->
+        var defaultData = function (data) {
+            // TIME //
+            var dateObject = new Date(data.currently.time * 1000);
+            console.log(dateObject.toString());
 
+            // FOR LOOP //
+            for (var i = 0; i < data.daily.data.length; i++) {
+
+                // VARIABLES FOR CAPTURING DATA FROM API //
+                var tempHighObject = Math.round(data.daily.data[i].temperatureHigh);
+                var tempLowObject = Math.round(data.daily.data[i].temperatureLow);
+                var iconObject = data.daily.data[i].icon.toString();
+                var cloudsObject = data.daily.data[i].cloudCover;
+                var humidityObject = data.daily.data[i].humidity * 100;
+                var windObject = data.daily.data[i].windSpeed;
+                var pressureObject = data.daily.data[i].pressure;
+
+                // CONDITIONALS TO APPEND DATA //
+                if (i === 0) {
+                    $('.day-one-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                        tempLowObject + '°' + '</h3>');
+                    icons.set('today-icon', iconObject);
+
+                    $('.day-one-text').html(
+                        '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+
+                } else if (i === 1) {
+                    $('.day-two-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                        tempLowObject + '°' + '</h3>');
+                    icons.set('tomorrow-icon', iconObject);
+
+                    $('.day-two-text').html(
+                        '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+
+                } else if (i === 2) {
+                    $('.day-three-temp').html('<h3 class="mb-4">' + tempHighObject + '°' + '/' +
+                        tempLowObject + '°' + '</h3>');
+                    icons.set('after-tomorrow-icon', iconObject);
+
+                    $('.day-three-text').html(
+                        '<p class="mt-3 mb-0">' + '<span class="font-weight-bolder">' + 'Clouds: ' + '</span>' + cloudsObject + '</p>' + '<br />' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Humidity: ' + '</span>' + humidityObject + '%' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Wind: ' + '</span>' + windObject + ' mph' + '</p>' + '<br>' +
+                        '<p class="m-0">' + '<span class="font-weight-bolder">' + 'Pressure: ' + '</span>' + pressureObject + '</p>');
+                }
+            }
+        };
+        // <!-- DARKSKY WEATHER DEFAULT END -->
+
+        // MARKER DRAG FUNCTION WHICH UPDATES NEW COORDINATES //
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
             $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-                '/' + lat + ',' + lng).done(function (data) {
-                console.log(data);
+                '/' + lngLat.lat + ',' + lngLat.lng).done(function (data) {
+                    console.log(data);
 
-                // ZOOMS IN AND OUT TO THE MOST RECENT SEARCH //
-                map.flyTo({
-                    center: result,
-                    essential: true
+
+                    defaultData(data);
                 });
-                marker.setLngLat(result);
+        }
+
+        marker.on('dragend', onDragEnd);
+        // <!-- END OF MAPBOX -->
+
+        // <!-- SEARCH MAP -->
+        $('#submit').click(function () {
+            var search = $(userSearch).val();
+
+            geocode(search, mapboxToken).then(function (result) {
+                var lng = result[0].toString();
+                var lat = result[1].toString();
+                console.log(result);
+
+                $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
+                    '/' + lat + ',' + lng).done(function (data) {
+                        console.log(data);
+
+                        // ZOOMS IN AND OUT TO THE MOST RECENT SEARCH //
+                        map.flyTo({
+                            center: result,
+                            essential: true
+                        });
+                        marker.setLngLat(result);
 
 
-                defaultData(data);
+                        defaultData(data);
+                    });
             });
         });
-    });
 
-    $('#hide').click(
-        function () {
-            $('.weather').toggle();
+        $('#hide').click(
+            function () {
+                $('.weather').toggle();
+            });
+
+        // DEFAULT AJAX CALL //
+        var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
+            '/29.4243,-98.4911');
+
+        xhr.done(function (data) {
+            console.log(data);
+            event.preventDefault();
+            defaultData(data);
+
         });
-
-    // DEFAULT AJAX CALL //
-    var xhr = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey +
-        '/29.4243,-98.4911');
-
-    xhr.done(function (data) {
-        console.log(data);
-        event.preventDefault();
-        defaultData(data);
-
-    });
-</script>
+    </script>
 </body>
+
 </html>
