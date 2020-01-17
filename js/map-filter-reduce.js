@@ -60,3 +60,19 @@ console.log(longest);
 let listUsers = users.map(user => user.name)
     .reduce((userA, userB) => `${userA} ${userB},`, 'Your instructors are: ');
 console.log(listUsers);
+
+
+
+let uniqueLang = users
+    .reduce((languages, usersLang) => {
+
+        usersLang.languages.forEach(function (language) {
+           if (languages.includes(language)){
+           } else {
+                    languages.push(language);
+           }
+       });
+        return languages
+
+    }, []);
+        console.log(uniqueLang);
