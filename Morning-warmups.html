@@ -219,6 +219,15 @@
         return total / totalHam;
     }
 
+
+
+let isAnagram = (word1, word2) => {
+        letters1 = word1.toLowerCase().split('').sort();
+        letters2 = word2.toLowerCase().split('').sort();
+        return (letters1.join()===letters2.join());
+    };
+    console.log(isAnagram("silent", "listen"));
+
 </script>
 
 </body>
